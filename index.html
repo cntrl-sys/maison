@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAISON — Luxury Fashion House</title>
+  <meta name="description" content="Discover timeless luxury. MAISON — Curated fashion from the world's finest ateliers.">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ============================================================
+       COLLABORATION SECTION
+       ============================================================ */
+
+    .collab-section {
+      padding: clamp(80px, 12vh, 140px) 0;
+      background: var(--black);
+      color: var(--white);
+      overflow: hidden;
+    }
+    .collab-section .section-header {
+      margin-bottom: clamp(48px, 6vw, 72px);
+    }
+    .collab-section .section-title {
+      color: var(--white);
+    }
+    .collab-section .section-title em {
+      color: var(--accent-gold);
+    }
+    .collab-section .btn-ghost {
+      color: var(--white);
+      border-color: rgba(255,255,255,0.3);
+    }
+    .collab-section .btn-ghost::before { background: var(--white); }
+    .collab-section .btn-ghost:hover   { color: var(--black); }
+
+    /* ── Featured collab (large hero card) ── */
+    .collab-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin-bottom: clamp(32px, 4vw, 48px);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .collab-hero-img {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+    .collab-hero-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 1s var(--ease-luxury);
+    }
+    .collab-hero:hover .collab-hero-img img { transform: scale(1.04); }
+
+    .collab-hero-img .collab-portrait {
+      position: absolute;
+      bottom: 32px; right: 32px;
+      width: 88px; height: 88px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--accent-gold);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      transition: transform 0.4s var(--ease-luxury);
+    }
+    .collab-hero:hover .collab-portrait { transform: scale(1.08); }
+    .collab-portrait img { width: 100%; height: 100%; object-fit: cover; }
+
+    .collab-hero-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(40px, 5vw, 72px);
+      background: #111;
+      position: relative;
+    }
+    .collab-hero-body::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 3px;
+      background: var(--accent-gold);
+    }
+
+    .collab-season {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 16px;
+    }
+    .collab-hero-name {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 4.5vw, 64px);
+      font-weight: 300;
+      line-height: 1.05;
+      margin-bottom: 8px;
+    }
+    .collab-hero-title {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 28px;
+    }
+    .collab-tagline {
+      font-family: var(--font-serif);
+      font-size: clamp(18px, 2vw, 24px);
+      font-style: italic;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+    .collab-desc {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 32px;
+      max-width: 400px;
+    }
+
+    /* Quote block */
+    .collab-quote {
+      border-left: 2px solid var(--accent-gold);
+      padding: 12px 20px;
+      margin-bottom: 36px;
+    }
+    .collab-quote p {
+      font-family: var(--font-serif);
+      font-size: clamp(15px, 1.5vw, 18px);
+      font-style: italic;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+    }
+    .collab-quote cite {
+      display: block;
+      font-size: 10px;
+      font-style: normal;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-top: 8px;
+    }
+
+    /* Social + CTA row */
+    .collab-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .collab-ig {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      transition: color 0.3s;
+      text-decoration: none;
+    }
+    .collab-ig:hover { color: var(--white); }
+    .collab-ig svg {
+      width: 16px; height: 16px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* ── Grid of secondary collabs ── */
+    .collab-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr));
+      gap: 2px;
+    }
+    .collab-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      background: #111;
+    }
+    .collab-card-img {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3/2;
+    }
+    .collab-card-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.9s var(--ease-luxury), filter 0.6s;
+      filter: brightness(0.75);
+    }
+    .collab-card:hover .collab-card-img img {
+      transform: scale(1.06);
+      filter: brightness(0.55);
+    }
+    .collab-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+    }
+    .collab-card-portrait {
+      position: absolute;
+      top: 20px; left: 20px;
+      width: 54px; height: 54px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--accent-gold);
+    }
+    .collab-card-portrait img { width: 100%; height: 100%; object-fit: cover; }
+
+    .collab-card-body {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 24px;
+    }
+    .collab-card-season {
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 6px;
+    }
+    .collab-card-name {
+      font-family: var(--font-serif);
+      font-size: clamp(22px, 2.5vw, 30px);
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .collab-card-tagline {
+      font-size: 11px;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+    .collab-card-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: all 0.4s var(--ease-luxury);
+    }
+    .collab-card:hover .collab-card-actions {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .collab-card-btn {
+      font-family: var(--font-sans);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 9px 20px;
+      border: 1px solid rgba(255,255,255,0.4);
+      color: var(--white);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .collab-card-btn:hover { background: var(--white); color: var(--black); border-color: var(--white); }
+    .collab-card-ig {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .collab-card-ig:hover { color: var(--white); }
+    .collab-card-ig svg { width: 14px; height: 14px; fill: currentColor; }
+
+    /* ── Collab count strip ── */
+    .collab-count-strip {
+      display: flex;
+      gap: clamp(32px, 5vw, 64px);
+      flex-wrap: wrap;
+      padding: clamp(32px, 4vw, 48px) 0 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: clamp(32px, 4vw, 48px);
+    }
+    .collab-stat { display: flex; flex-direction: column; gap: 4px; }
+    .collab-stat-num {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 300;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+    .collab-stat-label {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ─── Responsive ── */
+    @media (max-width: 768px) {
+      .collab-hero { grid-template-columns: 1fr; }
+      .collab-hero-body { padding: 32px 24px; }
+      .collab-hero-body::before { top: 0; bottom: auto; left: 0; right: 0; width: auto; height: 3px; }
+    }
+  </style>
+</head>
+<body class="page-fade">
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <ul class="nav-links">
+        <li><a href="index.html"  class="nav-link">Home</a></li>
+        <li><a href="shop.html"   class="nav-link">Shop</a></li>
+        <li><a href="shop.html"   class="nav-link">Collections</a></li>
+      </ul>
+      <a href="index.html" class="nav-logo">Maison</a>
+      <div class="nav-actions">
+        <a href="shop.html" class="nav-link">About</a>
+        <button class="nav-cart" data-open-cart aria-label="Open cart">
+          Bag&nbsp;<span class="cart-count">0</span>
+        </button>
+        <button class="nav-burger" id="nav-burger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true">
+    <button class="mobile-close" id="mobile-close" aria-label="Close menu">✕</button>
+    <a href="index.html"  class="nav-link">Home</a>
+    <a href="shop.html"   class="nav-link">Shop</a>
+    <a href="shop.html"   class="nav-link">Collections</a>
+    <a href="shop.html"   class="nav-link">About</a>
+    <button class="nav-link" data-open-cart>Bag (<span class="cart-count">0</span>)</button>
+  </div>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="images/old/hero.png"
+           alt="MAISON Hero" fetchpriority="high">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content container">
+      <p class="label">New Collection — SS 2025</p>
+      <h1 class="hero-title">The&nbsp;Art<br>of <em>Being</em><br>Dressed.</h1>
+      <p class="hero-sub">Timeless silhouettes crafted in the finest ateliers of Europe.</p>
+      <a href="shop.html" class="btn btn-light">
+        Explore Collection
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M2 7h10M8 3l4 4-4 4"/>
+        </svg>
+      </a>
+    </div>
+    <div class="scroll-cue">
+      <span>Scroll</span>
+      <svg viewBox="0 0 16 24"><path d="M8 3v14M2 12l6 7 6-7"/></svg>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MARQUEE TICKER
+       ============================================================ -->
+  <div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-track">
+      <span>New Arrivals</span><span class="dot">·</span>
+      <span>Italian Leather</span><span class="dot">·</span>
+      <span>Complimentary Shipping</span><span class="dot">·</span>
+      <span>Made in Europe</span><span class="dot">·</span>
+      <span>SS 2025 Collection</span><span class="dot">·</span>
+      <span>Luxury Redefined</span><span class="dot">·</span>
+      <span>New Arrivals</span><span class="dot">·</span>
+      <span>Italian Leather</span><span class="dot">·</span>
+      <span>Complimentary Shipping</span><span class="dot">·</span>
+      <span>Made in Europe</span><span class="dot">·</span>
+      <span>SS 2025 Collection</span><span class="dot">·</span>
+      <span>Luxury Redefined</span><span class="dot">·</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FEATURED PRODUCTS
+       ============================================================ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">New <em>Arrivals</em></h2>
+        <a href="shop.html" class="btn btn-ghost" style="flex-shrink:0">View All</a>
+      </div>
+      <div class="product-grid" id="featured-grid"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       EDITORIAL SPLIT
+       ============================================================ -->
+  <section class="editorial">
+    <div class="editorial-image">
+      <img src="images/step 28/2026-01-17_16-43-04_3644.png"
+           alt="Editorial — MAISON Woman" loading="lazy">
+    </div>
+    <div class="editorial-text">
+      <p class="label">The House</p>
+      <h2>Elegance<br>is a <em>Choice.</em></h2>
+      <p>Since our founding, MAISON has pursued a singular vision: to dress the extraordinary individual. Each piece leaves our atelier only when it meets an uncompromising standard of craft, material, and form.</p>
+      <a href="shop.html" class="btn btn-dark">Discover the Story</a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       COLLABORATIONS SECTION — auto-rendered from products.js
+       ============================================================ -->
+  <section class="collab-section" id="collaborations">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <p class="label" style="color:var(--accent-gold);margin-bottom:12px">Exclusive Partnerships</p>
+          <h2 class="section-title">Kollabo<em>rationen</em></h2>
+        </div>
+        <a href="shop.html" class="btn btn-ghost" style="flex-shrink:0">Alle Kollektionen</a>
+      </div>
+
+      <!-- Hero collab (featured = true, first one) — injected by JS -->
+      <div id="collab-hero-slot"></div>
+
+      <!-- Secondary collab cards — injected by JS -->
+      <div class="collab-grid" id="collab-grid"></div>
+
+      <!-- Stats strip -->
+      <div class="collab-count-strip">
+        <div class="collab-stat">
+          <span class="collab-stat-num" id="stat-collabs">0</span>
+          <span class="collab-stat-label">Kollaborationen</span>
+        </div>
+        <div class="collab-stat">
+          <span class="collab-stat-num" id="stat-pieces">0</span>
+          <span class="collab-stat-label">Exklusive Pieces</span>
+        </div>
+        <div class="collab-stat">
+          <span class="collab-stat-num">3</span>
+          <span class="collab-stat-label">Saisons</span>
+        </div>
+        <div class="collab-stat">
+          <span class="collab-stat-num">12</span>
+          <span class="collab-stat-label">Länder</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CATEGORY QUICK LINKS
+       ============================================================ -->
+  <section class="section" style="background:var(--beige)">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Shop by <em>Category</em></h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;">
+
+        <a href="shop.html?gender=damen" class="product-card" style="text-decoration:none">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80" alt="Damen" loading="lazy">
+          </div>
+          <div class="card-info" style="padding-top:12px">
+            <span class="card-name">Damen</span>
+            <span class="card-price" style="font-size:10px;letter-spacing:.15em;text-transform:uppercase">Entdecken →</span>
+          </div>
+        </a>
+
+        <a href="shop.html?gender=herren" class="product-card" style="text-decoration:none">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80" alt="Herren" loading="lazy">
+          </div>
+          <div class="card-info" style="padding-top:12px">
+            <span class="card-name">Herren</span>
+            <span class="card-price" style="font-size:10px;letter-spacing:.15em;text-transform:uppercase">Entdecken →</span>
+          </div>
+        </a>
+
+        <a href="shop.html?gender=damen&category=Accessoires" class="product-card" style="text-decoration:none">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80" alt="Accessoires" loading="lazy">
+          </div>
+          <div class="card-info" style="padding-top:12px">
+            <span class="card-name">Accessoires</span>
+            <span class="card-price" style="font-size:10px;letter-spacing:.15em;text-transform:uppercase">Entdecken →</span>
+          </div>
+        </a>
+
+        <a href="shop.html?gender=kinder" class="product-card" style="text-decoration:none">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?w=600&q=80" alt="Kinder" loading="lazy">
+          </div>
+          <div class="card-info" style="padding-top:12px">
+            <span class="card-name">Kinder</span>
+            <span class="card-price" style="font-size:10px;letter-spacing:.15em;text-transform:uppercase">Entdecken →</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h2>Maison</h2>
+          <p>The pursuit of perfection, distilled into every stitch, seam, and silhouette.</p>
+          <a href="shop.html" class="btn btn-light" style="font-size:9px">Shop Now</a>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="#collaborations">Kollaborationen</a></li>
+            <li><a href="shop.html">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Abteilungen</h4>
+          <ul>
+            <li><a href="shop.html?gender=damen">Damen</a></li>
+            <li><a href="shop.html?gender=herren">Herren</a></li>
+            <li><a href="shop.html?gender=kinder">Kinder</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Client Services</h4>
+          <ul>
+            <li><a href="#">Shipping & Returns</a></li>
+            <li><a href="#">Size Guide</a></li>
+            <li><a href="#">Care Instructions</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 MAISON. All rights reserved.</p>
+        <p>Privacy Policy &nbsp;·&nbsp; Terms of Service</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Sidebar -->
+  <div class="cart-backdrop" id="cart-backdrop"></div>
+  <aside class="cart-sidebar" id="cart-sidebar" role="dialog" aria-label="Shopping cart">
+    <div class="cart-header">
+      <h3>Your Bag</h3>
+      <button class="cart-close" id="cart-close" aria-label="Close cart">✕</button>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-footer" id="cart-footer" style="display:none">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <span id="cart-subtotal">€0</span>
+      </div>
+      <button class="btn-addcart" style="margin-bottom:12px"><span>Proceed to Checkout</span></button>
+      <button class="btn btn-ghost" style="width:100%" onclick="closeCart()">Continue Shopping</button>
+    </div>
+  </aside>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="products.js"></script>
+  <script src="script.js"></script>
+
+  <!-- ============================================================
+       COLLABORATION RENDERER
+       Liest `collaborations` aus products.js und baut die Section
+       ============================================================ -->
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (typeof collaborations === 'undefined' || collaborations.length === 0) return;
+
+    /* Instagram SVG icon */
+    const igIcon = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+    </svg>`;
+
+    const featured   = collaborations.filter(c => c.featured);
+    const secondary  = collaborations.filter(c => !c.featured);
+    const heroSlot   = document.getElementById('collab-hero-slot');
+    const gridSlot   = document.getElementById('collab-grid');
+
+    /* ── Stat counters ── */
+    const statCollabs = document.getElementById('stat-collabs');
+    const statPieces  = document.getElementById('stat-pieces');
+    if (statCollabs) statCollabs.textContent = collaborations.length;
+    if (statPieces && typeof products !== 'undefined') {
+      statPieces.textContent = products.filter(p => p.collab).length;
+    }
+
+    /* ── Helper: link to shop filtered by collab ── */
+    const shopLink = (c) =>
+      `shop.html?collab=${encodeURIComponent(c.id)}`;
+
+    /* ── Build Hero Card (first featured collab) ── */
+    if (featured.length > 0 && heroSlot) {
+      const c = featured[0];
+      heroSlot.innerHTML = `
+        <div class="collab-hero" onclick="location.href='${shopLink(c)}'">
+          <div class="collab-hero-img">
+            <img src="${c.heroImage}" alt="${c.name}" loading="lazy">
+            <div class="collab-portrait">
+              <img src="${c.image}" alt="${c.name} Portrait">
+            </div>
+          </div>
+          <div class="collab-hero-body" style="border-left-color:${c.accentColor}">
+            <p class="collab-season">${c.season}</p>
+            <h3 class="collab-hero-name">${c.name}</h3>
+            <p class="collab-hero-title">${c.title}</p>
+            <p class="collab-tagline">${c.tagline}</p>
+            <p class="collab-desc">${c.description}</p>
+            <div class="collab-quote">
+              <p>„${c.quote}"</p>
+              <cite>— ${c.name}</cite>
+            </div>
+            <div class="collab-actions">
+              <a href="${shopLink(c)}" class="btn btn-light" onclick="event.stopPropagation()">
+                Kollektion entdecken
+              </a>
+              <a href="${c.instagramUrl}" target="_blank" rel="noopener" class="collab-ig" onclick="event.stopPropagation()">
+                ${igIcon} @${c.instagram}
+              </a>
+            </div>
+          </div>
+        </div>`;
+    }
+
+    /* ── Build secondary + remaining featured cards ── */
+    const gridCollabs = [...featured.slice(1), ...secondary];
+    if (gridCollabs.length > 0 && gridSlot) {
+      gridSlot.innerHTML = gridCollabs.map(c => `
+        <div class="collab-card" onclick="location.href='${shopLink(c)}'">
+          <div class="collab-card-img">
+            <img src="${c.heroImage}" alt="${c.name}" loading="lazy">
+            <div class="collab-card-overlay"></div>
+          </div>
+          <div class="collab-card-portrait">
+            <img src="${c.image}" alt="${c.name}">
+          </div>
+          <div class="collab-card-body">
+            <p class="collab-card-season">${c.season}</p>
+            <h3 class="collab-card-name">${c.name}</h3>
+            <p class="collab-card-tagline">${c.tagline}</p>
+            <div class="collab-card-actions">
+              <button class="collab-card-btn" onclick="event.stopPropagation();location.href='${shopLink(c)}'">
+                Kollektion
+              </button>
+              <a href="${c.instagramUrl}" target="_blank" rel="noopener"
+                 class="collab-card-ig" onclick="event.stopPropagation()">
+                ${igIcon} @${c.instagram}
+              </a>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+  });
+  </script>
+</body>
+</html>

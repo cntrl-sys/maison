@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop — MAISON</title>
+  <meta name="description" content="Explore MAISON's full collection of luxury fashion.">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ============================================================
+       MEGA DROPDOWN FILTER
+       ============================================================ */
+
+    .shop-filter-bar {
+      position: sticky;
+      top: var(--nav-h);
+      z-index: 900;
+      background: var(--white);
+      border-bottom: 1px solid var(--beige-dark);
+    }
+
+    /* ── Gender tabs ── */
+    .gender-tabs {
+      display: flex;
+      align-items: stretch;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .gender-tabs::-webkit-scrollbar { display: none; }
+
+    .gender-tab {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 18px clamp(16px, 2.5vw, 36px);
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.3s var(--ease-luxury);
+      white-space: nowrap;
+      margin-bottom: -1px;
+    }
+    .gender-tab:hover { color: var(--black); }
+    .gender-tab.active { color: var(--black); border-bottom-color: var(--black); }
+    .gender-tab .tab-arrow {
+      font-size: 7px;
+      transition: transform 0.3s var(--ease-luxury);
+      opacity: 0.45;
+    }
+    .gender-tab.panel-open .tab-arrow,
+    .gender-tab:hover .tab-arrow { transform: rotate(180deg); opacity: 1; }
+
+    .gender-tab-divider {
+      width: 1px;
+      background: var(--beige-dark);
+      margin: 12px 0;
+      flex-shrink: 0;
+    }
+    .tab-right { margin-left: auto; }
+
+    .tab-count {
+      font-size: 9px;
+      background: #f0e8e8;
+      color: #b04c4c;
+      padding: 2px 7px;
+      border-radius: 20px;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── Mega panel ── */
+    .mega-panel {
+      position: absolute;
+      top: 100%;
+      left: 0; right: 0;
+      background: var(--white);
+      border-bottom: 2px solid var(--black);
+      box-shadow: 0 32px 64px rgba(0,0,0,0.12);
+      display: grid;
+      grid-template-columns: 200px 1fr 1fr;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-6px);
+      transition: all 0.38s var(--ease-luxury);
+      pointer-events: none;
+      max-height: 500px;
+      overflow: hidden;
+    }
+    .mega-panel.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+
+    /* Col 1 */
+    .mega-col-gender {
+      background: var(--beige);
+      padding: 32px 0 32px;
+      border-right: 1px solid var(--beige-dark);
+      overflow-y: auto;
+    }
+    .mc-label {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      padding: 0 24px 14px;
+      display: block;
+    }
+    .mega-gender-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 24px;
+      font-family: var(--font-serif);
+      font-size: 19px;
+      font-weight: 400;
+      color: var(--black);
+      cursor: pointer;
+      border-left: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    .mega-gender-item:hover,
+    .mega-gender-item.active {
+      background: rgba(255,255,255,0.7);
+      border-left-color: var(--black);
+    }
+    .mega-gender-item .arrow { font-size: 11px; color: var(--warm-gray); }
+
+    /* Col 2 */
+    .mega-col-cats {
+      padding: 32px 32px;
+      border-right: 1px solid var(--beige-dark);
+      overflow-y: auto;
+    }
+    .mega-cat-list { display: flex; flex-direction: column; gap: 2px; margin-top: 14px; }
+    .mega-cat-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.07em;
+      color: var(--black);
+      cursor: pointer;
+      border-left: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    .mega-cat-item:hover,
+    .mega-cat-item.active { background: var(--beige); border-left-color: var(--accent-gold); }
+    .mega-cat-item .cat-count { font-size: 10px; color: var(--mid-gray); }
+
+    /* Col 3 */
+    .mega-col-sub {
+      padding: 32px 32px;
+      overflow-y: auto;
+    }
+
+    /* ── Round accessory circles ── */
+    .acc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+      gap: 18px 12px;
+      margin-top: 14px;
+    }
+    .acc-tile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+    .acc-circle {
+      width: 68px; height: 68px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--beige);
+      border: 2px solid transparent;
+      transition: all 0.35s var(--ease-luxury);
+    }
+    .acc-circle img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s var(--ease-luxury);
+    }
+    .acc-tile:hover .acc-circle { border-color: var(--black); }
+    .acc-tile:hover .acc-circle img { transform: scale(1.1); }
+    .acc-tile.active .acc-circle { border-color: var(--black); }
+    .acc-tile span {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-align: center;
+      color: var(--black);
+      line-height: 1.3;
+    }
+
+    /* Plain sub-list */
+    .sub-list { display: flex; flex-direction: column; gap: 2px; margin-top: 14px; }
+    .sub-list-item {
+      padding: 10px 14px;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      color: var(--black);
+      cursor: pointer;
+      border-left: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    .sub-list-item:hover,
+    .sub-list-item.active { background: var(--beige); border-left-color: var(--accent-gold); }
+
+    .sub-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 180px;
+      color: var(--mid-gray);
+      font-family: var(--font-serif);
+      font-size: 16px;
+      font-style: italic;
+      text-align: center;
+    }
+
+    /* ── Close backdrop ── */
+    .mega-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 899;
+      display: none;
+    }
+    .mega-backdrop.open { display: block; }
+
+    /* ── Active filter trail ── */
+    .filter-trail {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 0 4px;
+      flex-wrap: wrap;
+      min-height: 36px;
+    }
+    .trail-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      background: var(--beige);
+      border: 1px solid var(--beige-dark);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .trail-chip:hover { background: var(--black); color: var(--white); border-color: var(--black); }
+    .trail-chip .chip-x { font-size: 13px; line-height: 1; }
+
+    /* ── Results bar ── */
+    .results-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 0 28px;
+      border-bottom: 1px solid var(--beige-dark);
+      margin-bottom: 36px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .results-bar span { font-size: 11px; color: var(--warm-gray); letter-spacing: 0.1em; }
+    .sort-select {
+      appearance: none;
+      background: none;
+      border: 1px solid var(--mid-gray);
+      padding: 8px 32px 8px 14px;
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--black);
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%239e9890'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+    }
+
+    @media (max-width: 768px) {
+      .mega-panel { grid-template-columns: 1fr 1fr; }
+      .mega-col-gender { display: none; }
+      .acc-grid { grid-template-columns: repeat(auto-fill, minmax(72px, 1fr)); }
+      .acc-circle { width: 60px; height: 60px; }
+    }
+    @media (max-width: 480px) {
+      .mega-panel { grid-template-columns: 1fr; max-height: 380px; }
+      .mega-col-cats { border-right: none; border-bottom: 1px solid var(--beige-dark); }
+    }
+  </style>
+</head>
+<body class="page-fade">
+
+  <!-- ── Navigation ── -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="shop.html"  class="nav-link">Shop</a></li>
+        <li><a href="shop.html"  class="nav-link">Collections</a></li>
+      </ul>
+      <a href="index.html" class="nav-logo">Maison</a>
+      <div class="nav-actions">
+        <a href="shop.html" class="nav-link">About</a>
+        <button class="nav-cart" data-open-cart aria-label="Open cart">
+          Bag&nbsp;<span class="cart-count">0</span>
+        </button>
+        <button class="nav-burger" id="nav-burger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true">
+    <button class="mobile-close" id="mobile-close" aria-label="Close menu">✕</button>
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="shop.html"  class="nav-link">Shop</a>
+    <a href="shop.html"  class="nav-link">Collections</a>
+    <a href="shop.html"  class="nav-link">About</a>
+    <button class="nav-link" data-open-cart>Bag (<span class="cart-count">0</span>)</button>
+  </div>
+
+  <!-- ── Shop Header ── -->
+  <header class="shop-hero">
+    <div class="container">
+      <p class="label">SS 2025</p>
+      <h1 id="shop-title">The <em>Collection</em></h1>
+      <p id="product-count" style="color:var(--warm-gray);font-size:12px;letter-spacing:.1em;margin-top:8px"></p>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       STICKY FILTER BAR + MEGA PANEL
+       ============================================================ -->
+  <div class="shop-filter-bar" id="shop-filter-bar">
+    <div class="container" style="position:relative">
+
+      <!-- Gender Tabs -->
+      <div class="gender-tabs" id="gender-tabs">
+        <button class="gender-tab active" data-gender="all">Alle</button>
+        <div class="gender-tab-divider"></div>
+        <button class="gender-tab" data-gender="damen">
+          Damen <span class="tab-arrow">▾</span>
+        </button>
+        <div class="gender-tab-divider"></div>
+        <button class="gender-tab" data-gender="herren">
+          Herren <span class="tab-arrow">▾</span>
+        </button>
+        <div class="gender-tab-divider"></div>
+        <button class="gender-tab" data-gender="kinder">
+          Kinder <span class="tab-arrow">▾</span>
+        </button>
+        <div class="gender-tab-divider tab-right"></div>
+        <button class="gender-tab" data-gender="sale" style="color:#b04c4c">
+          Sale <span class="tab-count">New</span>
+        </button>
+      </div>
+
+      <!-- Mega Panel -->
+      <div class="mega-panel" id="mega-panel">
+
+        <!-- Col 1: Gender nav -->
+        <div class="mega-col-gender" id="mega-col-gender"></div>
+
+        <!-- Col 2: Categories -->
+        <div class="mega-col-cats" id="mega-col-cats">
+          <span class="mc-label">Kategorie</span>
+          <div class="mega-cat-list" id="mega-cat-list"></div>
+        </div>
+
+        <!-- Col 3: Sub-categories -->
+        <div class="mega-col-sub" id="mega-col-sub">
+          <span class="mc-label" id="mega-sub-label">Unterkategorie</span>
+          <div id="mega-sub-content">
+            <div class="sub-placeholder">Kategorie wählen →</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active filter breadcrumb trail -->
+      <div class="filter-trail" id="filter-trail"></div>
+    </div>
+  </div>
+
+  <!-- Backdrop to close mega panel -->
+  <div class="mega-backdrop" id="mega-backdrop"></div>
+
+  <!-- ── Shop Body ── -->
+  <main>
+    <div class="container section" style="padding-top:32px">
+      <div class="results-bar">
+        <span id="results-count">Alle Produkte</span>
+        <select class="sort-select" id="sort-select">
+          <option value="default">Sortieren: Empfohlen</option>
+          <option value="price-asc">Preis: Aufsteigend</option>
+          <option value="price-desc">Preis: Absteigend</option>
+          <option value="name">Name A–Z</option>
+        </select>
+      </div>
+      <div class="product-grid grid-shop" id="shop-grid"></div>
+    </div>
+  </main>
+
+  <!-- ── Editorial ── -->
+  <section class="editorial" style="margin-bottom:0">
+    <div class="editorial-text" style="background:var(--black);color:var(--white)">
+      <p class="label" style="color:rgba(255,255,255,0.4)">The Atelier</p>
+      <h2 style="color:var(--white)">Crafted for<br><em>Eternity.</em></h2>
+      <p style="color:rgba(255,255,255,0.55)">
+        Every product that carries the MAISON name has passed through the hands
+        of master artisans trained in Europe's finest workshops.
+      </p>
+      <a href="#" class="btn btn-light">Our Heritage</a>
+    </div>
+    <div class="editorial-image">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80"
+           alt="Atelier — MAISON craft" loading="lazy">
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h2>Maison</h2>
+          <p>The pursuit of perfection, distilled into every stitch, seam, and silhouette.</p>
+          <a href="shop.html" class="btn btn-light" style="font-size:9px">Shop Now</a>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="shop.html">Collections</a></li>
+            <li><a href="shop.html">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="shop.html?gender=damen">Damen</a></li>
+            <li><a href="shop.html?gender=herren">Herren</a></li>
+            <li><a href="shop.html?gender=kinder">Kinder</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Client Services</h4>
+          <ul>
+            <li><a href="#">Shipping & Returns</a></li>
+            <li><a href="#">Size Guide</a></li>
+            <li><a href="#">Care Instructions</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 MAISON. All rights reserved.</p>
+        <p>Privacy Policy &nbsp;·&nbsp; Terms of Service</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart -->
+  <div class="cart-backdrop" id="cart-backdrop"></div>
+  <aside class="cart-sidebar" id="cart-sidebar" role="dialog" aria-label="Shopping cart">
+    <div class="cart-header">
+      <h3>Your Bag</h3>
+      <button class="cart-close" id="cart-close" aria-label="Close cart">✕</button>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-footer" id="cart-footer" style="display:none">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <span id="cart-subtotal">€0</span>
+      </div>
+      <button class="btn-addcart" style="margin-bottom:12px"><span>Proceed to Checkout</span></button>
+      <button class="btn btn-ghost" style="width:100%" onclick="closeCart()">Continue Shopping</button>
+    </div>
+  </aside>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="products.js"></script>
+  <script src="script.js"></script>
+
+  <!-- ============================================================
+       SHOP MEGA MENU LOGIC
+       ============================================================ -->
+  <script>
+  (() => {
+
+    /* ──────────────────────────────────────────────────────────
+       TAXONOMY DATA
+       Struktur: gender → category → { isAcc?, subs[] }
+       Für Accessoires: subs = [{ name, img }]
+       Sonst:           subs = ['string', ...]
+    ────────────────────────────────────────────────────────── */
+    const taxonomy = {
+      damen: {
+        label: 'Damen',
+        cats: {
+          'Kleider':            { subs: ['Abendkleider','Tageskleider','Minikleid','Maxikleid','Cocktailkleider','Ballkleider'] },
+          'Blusen & Tops':      { subs: ['Seidenblusen','Bodys','Crop Tops','Tanktops','Rollkragen','Off-Shoulder'] },
+          'Hosen':              { subs: ['Weite Hosen','Röhrenhosen','Culottes','Leggings','Palazzo','High-Waist'] },
+          'Röcke':              { subs: ['Miniröcke','Midiröcke','Maxiröcke','Plisseeröcke','Bleistiftröcke'] },
+          'Jacken & Mäntel':    { subs: ['Trenchcoat','Wollmantel','Blazer','Bomberjacke','Lederjacke','Pelzjacke'] },
+          'Bademode':           { subs: ['Badeanzug','Bikini','Tankini','Pareo','Strandkleider'] },
+          'Unterwäsche & Nacht':{ subs: ['BH','Slips','Bodies','Shapewear','Nachtwäsche','Strümpfe'] },
+          'Schuhe':             { subs: ['Pumps','Stiefel','Sandalen','Sneakers','Loafers','Mules','Ballerinas'] },
+          'Accessoires': {
+            isAcc: true,
+            subs: [
+              { name: 'Taschen',       img: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=200&q=70' },
+              { name: 'Sonnenbrillen', img: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=200&q=70' },
+              { name: 'Schmuck',       img: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=200&q=70' },
+              { name: 'Ohrringe',      img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=200&q=70' },
+              { name: 'Halsketten',    img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=200&q=70' },
+              { name: 'Armbänder',     img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=200&q=70' },
+              { name: 'Gürtel',        img: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&q=70' },
+              { name: 'Schals',        img: 'https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=200&q=70' },
+              { name: 'Hüte',          img: 'https://images.unsplash.com/photo-1521369909029-2afed882baee?w=200&q=70' },
+              { name: 'Handschuhe',    img: 'https://images.unsplash.com/photo-1508634628372-b9e10a89c30f?w=200&q=70' },
+              { name: 'Haarbänder',    img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=200&q=70' },
+              { name: 'Parfum',        img: 'https://images.unsplash.com/photo-1541643600914-78b084683702?w=200&q=70' },
+            ]
+          },
+        }
+      },
+      herren: {
+        label: 'Herren',
+        cats: {
+          'Hemden':             { subs: ['Formalhemd','Freizeithemd','Poloshirt','T-Shirts','Rollkragen','Henley'] },
+          'Hosen':              { subs: ['Anzughosen','Chinos','Jeans','Shorts','Cargohosen','Sweatpants'] },
+          'Anzüge & Sakkos':    { subs: ['Zweiteiliger Anzug','Dreiteiliger Anzug','Smoking','Sakko','Weste','Fliege'] },
+          'Jacken & Mäntel':    { subs: ['Mantel','Trenchcoat','Bomberjacke','Lederjacke','Strickjacke','Daunenjacke'] },
+          'Strickwaren':        { subs: ['Pullover','Cardigans','Rollkragenpullover','Veston','Westen'] },
+          'Badebekleidung':     { subs: ['Badehosen','Boardshorts','Badeanzug'] },
+          'Unterwäsche & Nacht':{ subs: ['Boxershorts','Unterhemden','Socken','Strümpfe','Nachtwäsche','Bademantel'] },
+          'Schuhe':             { subs: ['Oxford','Derby','Loafer','Chelsea Boot','Sneakers','Sandalen','Espadrilles'] },
+          'Accessoires': {
+            isAcc: true,
+            subs: [
+              { name: 'Taschen',          img: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=200&q=70' },
+              { name: 'Sonnenbrillen',    img: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=200&q=70' },
+              { name: 'Krawatten',        img: 'https://images.unsplash.com/photo-1589756823695-278bc923f962?w=200&q=70' },
+              { name: 'Gürtel',           img: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&q=70' },
+              { name: 'Uhren',            img: 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=200&q=70' },
+              { name: 'Schals',           img: 'https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=200&q=70' },
+              { name: 'Manschettenknöpfe',img: 'https://images.unsplash.com/photo-1590548784585-643d2b9f2925?w=200&q=70' },
+              { name: 'Hüte & Caps',      img: 'https://images.unsplash.com/photo-1521369909029-2afed882baee?w=200&q=70' },
+              { name: 'Brieftaschen',     img: 'https://images.unsplash.com/photo-1627123424574-724758594e93?w=200&q=70' },
+              { name: 'Parfum',           img: 'https://images.unsplash.com/photo-1541643600914-78b084683702?w=200&q=70' },
+            ]
+          },
+        }
+      },
+      kinder: {
+        label: 'Kinder',
+        cats: {
+          'Mädchen (2–14J)':    { subs: ['Kleider','Röcke','Hosen','Oberteile','Jacken','Schuluniformen'] },
+          'Jungen (2–14J)':     { subs: ['Hemden','Hosen','T-Shirts','Jacken','Shorts','Schuluniformen'] },
+          'Baby & Kleinkind':   { subs: ['Bodys','Strampler','Schlafsäcke','Sets','Erstausstattung','Jacken'] },
+          'Schuhe':             { subs: ['Mädchenschuhe','Jungenschuhe','Babyschuhe','Sportschuhe','Sandalen'] },
+          'Accessoires': {
+            isAcc: true,
+            subs: [
+              { name: 'Mützen',    img: 'https://images.unsplash.com/photo-1521369909029-2afed882baee?w=200&q=70' },
+              { name: 'Schals',    img: 'https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=200&q=70' },
+              { name: 'Rucksäcke', img: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&q=70' },
+              { name: 'Socken',    img: 'https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=200&q=70' },
+              { name: 'Haarbänder',img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=200&q=70' },
+              { name: 'Sonnenbrillen', img: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=200&q=70' },
+            ]
+          },
+        }
+      }
+    };
+
+    /* ── State ── */
+    let activeGender   = 'all';
+    let activeCategory = null;
+    let activeSub      = null;
+    let panelFor       = null; // which gender has panel open
+
+    /* ── DOM ── */
+    const panel      = document.getElementById('mega-panel');
+    const backdrop   = document.getElementById('mega-backdrop');
+    const colGender  = document.getElementById('mega-col-gender');
+    const catList    = document.getElementById('mega-cat-list');
+    const subLabel   = document.getElementById('mega-sub-label');
+    const subContent = document.getElementById('mega-sub-content');
+    const trail      = document.getElementById('filter-trail');
+    const grid       = document.getElementById('shop-grid');
+    const resCount   = document.getElementById('results-count');
+
+    /* ── Panel open/close ── */
+    function openPanel(gender) {
+      panelFor = gender;
+      panel.classList.add('open');
+      backdrop.classList.add('open');
+      document.querySelector(`[data-gender="${gender}"]`)?.classList.add('panel-open');
+      renderGenderCol(gender);
+      renderCatCol(gender, null);
+      resetSubCol();
+    }
+    function closePanel() {
+      panel.classList.remove('open');
+      backdrop.classList.remove('open');
+      document.querySelectorAll('.gender-tab').forEach(t => t.classList.remove('panel-open'));
+      panelFor = null;
+    }
+    backdrop.addEventListener('click', closePanel);
+
+    /* ── Tab clicks ── */
+    document.querySelectorAll('.gender-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const g = btn.dataset.gender;
+        if (g === 'all')  { closePanel(); applyFilter('all', null, null); return; }
+        if (g === 'sale') { closePanel(); applyFilter('sale', null, null); return; }
+        // Toggle panel
+        if (panelFor === g) { closePanel(); }
+        else { closePanel(); openPanel(g); }
+      });
+    });
+
+    /* ── Col 1: Gender selector ── */
+    function renderGenderCol(selected) {
+      colGender.innerHTML = `<span class="mc-label">Abteilung</span>` +
+        ['damen','herren','kinder'].map(g => `
+          <div class="mega-gender-item${g === selected ? ' active' : ''}" data-g="${g}">
+            ${taxonomy[g].label} <span class="arrow">›</span>
+          </div>
+        `).join('');
+
+      colGender.querySelectorAll('.mega-gender-item').forEach(el => {
+        const hover = () => {
+          colGender.querySelectorAll('.mega-gender-item').forEach(x => x.classList.remove('active'));
+          el.classList.add('active');
+          panelFor = el.dataset.g;
+          renderCatCol(el.dataset.g, null);
+          resetSubCol();
+        };
+        el.addEventListener('mouseenter', hover);
+        el.addEventListener('click', hover);
+      });
+    }
+
+    /* ── Col 2: Categories ── */
+    function renderCatCol(gender, activecat) {
+      if (!taxonomy[gender]) { catList.innerHTML = ''; return; }
+      const cats = Object.keys(taxonomy[gender].cats);
+      catList.innerHTML = cats.map(cat => {
+        const d = taxonomy[gender].cats[cat];
+        return `
+          <div class="mega-cat-item${cat === activecat ? ' active' : ''}" data-cat="${cat}" data-gender="${gender}">
+            ${cat} <span class="cat-count">${d.subs.length}</span>
+          </div>`;
+      }).join('');
+
+      catList.querySelectorAll('.mega-cat-item').forEach(el => {
+        // Hover: show sub without applying filter
+        el.addEventListener('mouseenter', () => {
+          catList.querySelectorAll('.mega-cat-item').forEach(x => x.classList.remove('active'));
+          el.classList.add('active');
+          renderSubCol(el.dataset.gender, el.dataset.cat);
+        });
+        // Click: apply category filter & close
+        el.addEventListener('click', () => {
+          activeCategory = el.dataset.cat;
+          activeSub      = null;
+          applyFilter(el.dataset.gender, el.dataset.cat, null);
+          closePanel();
+        });
+      });
+    }
+
+    /* ── Col 3: Sub-categories ── */
+    function renderSubCol(gender, cat) {
+      if (!cat || !taxonomy[gender]) { resetSubCol(); return; }
+      const d = taxonomy[gender].cats[cat];
+      if (!d) return;
+      subLabel.textContent = cat;
+
+      // Normalize: subs can be plain strings OR objects with .name (accessories)
+      // Always extract just the label — img is intentionally ignored
+      const subNames = d.subs.map(s => (typeof s === 'object' ? s.name : s));
+
+      subContent.innerHTML = `<div class="sub-list">` +
+        subNames.map(name => `
+          <div class="sub-list-item" data-sub="${name}" data-cat="${cat}" data-gender="${gender}">${name}</div>
+        `).join('') +
+      `</div>`;
+
+      subContent.querySelectorAll('.sub-list-item').forEach(item => {
+        item.addEventListener('click', () => {
+          applyFilter(item.dataset.gender, item.dataset.cat, item.dataset.sub);
+          closePanel();
+        });
+      });
+    }
+
+    function resetSubCol() {
+      subLabel.textContent = 'Unterkategorie';
+      subContent.innerHTML = `<div class="sub-placeholder">Kategorie wählen →</div>`;
+    }
+
+    /* ── Apply filter & render ── */
+    function applyFilter(gender, category, sub) {
+      activeGender   = gender || 'all';
+      activeCategory = category || null;
+      activeSub      = sub || null;
+
+      // Highlight tab
+      document.querySelectorAll('.gender-tab').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.gender === activeGender);
+      });
+
+      renderTrail();
+      renderProducts();
+    }
+
+    /* ── Breadcrumb trail ── */
+    function renderTrail() {
+      const chips = [];
+      if (activeGender && activeGender !== 'all') {
+        chips.push({ key: 'gender', label: taxonomy[activeGender]?.label || activeGender });
+      }
+      if (activeCategory) chips.push({ key: 'category', label: activeCategory });
+      if (activeSub)      chips.push({ key: 'sub',      label: activeSub });
+
+      trail.innerHTML = chips.map(c => `
+        <button class="trail-chip" data-key="${c.key}">
+          ${c.label} <span class="chip-x">×</span>
+        </button>
+      `).join('');
+
+      trail.querySelectorAll('.trail-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+          if (chip.dataset.key === 'gender')   { applyFilter('all', null, null); }
+          if (chip.dataset.key === 'category') { applyFilter(activeGender, null, null); }
+          if (chip.dataset.key === 'sub')      { applyFilter(activeGender, activeCategory, null); }
+        });
+      });
+    }
+
+    /* ── Render products ── */
+    function renderProducts() {
+      if (typeof products === 'undefined') return;
+      let list = [...products];
+
+      // Filter by full path: gender → category → sub
+      // Uses actual product fields (gender, category, sub) directly
+      if (activeGender !== 'all' && activeGender !== 'sale') {
+        list = list.filter(p => p.gender === activeGender);
+      }
+      if (activeCategory) {
+        list = list.filter(p => p.category === activeCategory);
+      }
+      if (activeSub) {
+        list = list.filter(p => p.sub === activeSub);
+      }
+      // Collab filter from URL
+      if (window._activeCollab) {
+        list = list.filter(p => p.collab === window._activeCollab);
+      }
+
+      // Sorting
+      const sort = document.getElementById('sort-select')?.value || 'default';
+      if (sort === 'price-asc')  list.sort((a,b) => a.price - b.price);
+      if (sort === 'price-desc') list.sort((a,b) => b.price - a.price);
+      if (sort === 'name')       list.sort((a,b) => a.name.localeCompare(b.name));
+
+      // Count label
+      const parts = [];
+      if (window._activeCollab && typeof collaborations !== 'undefined') {
+        const c = collaborations.find(x => x.id === window._activeCollab);
+        if (c) parts.push(c.title);
+      } else {
+        if (activeGender !== 'all') parts.push(taxonomy[activeGender]?.label || activeGender);
+        if (activeCategory)         parts.push(activeCategory);
+        if (activeSub)              parts.push(activeSub);
+      }
+      parts.push(`${list.length} Produkte`);
+      resCount.textContent = parts.join(' · ');
+
+      if (list.length === 0) {
+        grid.innerHTML = `
+          <div class="no-results">
+            <p>Keine Produkte gefunden.</p>
+            <span>Versuche eine andere Kategorie</span>
+          </div>`;
+        return;
+      }
+      grid.innerHTML = list.map(buildProductCard).join('');
+    }
+
+    /* ── Sort ── */
+    document.getElementById('sort-select')?.addEventListener('change', renderProducts);
+
+    /* ── Init ── */
+    document.addEventListener('DOMContentLoaded', () => {
+      const params  = new URLSearchParams(window.location.search);
+      const gp      = params.get('gender');
+      const cp      = params.get('category');
+      const sp      = params.get('sub');
+      const collabP = params.get('collab');
+
+      if (gp && taxonomy[gp]) activeGender   = gp;
+      if (cp)                  activeCategory = cp;
+      if (sp)                  activeSub      = sp;
+      if (collabP)             window._activeCollab = collabP;
+
+      document.querySelectorAll('.gender-tab').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.gender === activeGender);
+      });
+      renderTrail();
+      renderProducts();
+
+      // Collab banner at top of shop if filtering by collab
+      if (collabP && typeof collaborations !== 'undefined') {
+        const c = collaborations.find(x => x.id === collabP);
+        if (c) {
+          const titleEl = document.getElementById('shop-title');
+          if (titleEl) titleEl.innerHTML = `${c.name} <em>× MAISON</em>`;
+          // Insert a small collab strip below header
+          const header = document.querySelector('.shop-hero');
+          if (header) {
+            const strip = document.createElement('div');
+            strip.style.cssText = 'background:var(--black);padding:16px 0;margin-top:0';
+            strip.innerHTML = `<div class="container" style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+              <img src="${c.image}" alt="${c.name}" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--accent-gold)">
+              <div>
+                <div style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-gold);margin-bottom:2px">${c.season}</div>
+                <div style="font-family:var(--font-serif);font-size:16px;color:var(--white)">${c.tagline}</div>
+              </div>
+              <a href="index.html#collaborations" style="margin-left:auto;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);text-decoration:underline">Alle Kollaborationen</a>
+            </div>`;
+            header.after(strip);
+          }
+        }
+      }
+
+      const countEl = document.getElementById('product-count');
+      if (countEl && typeof products !== 'undefined') {
+        countEl.textContent = `${products.length} Pieces — SS 2025`;
+      }
+    });
+
+  })();
+  </script>
+</body>
+</html>

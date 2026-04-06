@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Title is set dynamically by script.js -->
+  <title>Product — MAISON</title>
+  <meta name="description" content="Luxury product detail page — MAISON.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-fade">
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="shop.html"  class="nav-link">Shop</a></li>
+        <li><a href="shop.html"  class="nav-link">Collections</a></li>
+      </ul>
+      <a href="index.html" class="nav-logo">Maison</a>
+      <div class="nav-actions">
+        <a href="shop.html" class="nav-link">About</a>
+        <button class="nav-cart" data-open-cart aria-label="Open cart">
+          Bag&nbsp;<span class="cart-count">0</span>
+        </button>
+        <button class="nav-burger" id="nav-burger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true">
+    <button class="mobile-close" id="mobile-close" aria-label="Close menu">✕</button>
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="shop.html"  class="nav-link">Shop</a>
+    <a href="shop.html"  class="nav-link">Collections</a>
+    <a href="shop.html"  class="nav-link">About</a>
+    <button class="nav-link" data-open-cart>Bag (<span class="cart-count">0</span>)</button>
+  </div>
+
+  <!-- ============================================================
+       PRODUCT DETAIL — populated entirely by script.js
+       ============================================================ -->
+  <main class="product-detail" id="product-detail">
+    <!-- Loading state -->
+    <div class="container" style="min-height:60vh;display:flex;align-items:center;justify-content:center">
+      <p style="font-family:var(--font-serif);font-size:22px;color:var(--mid-gray);letter-spacing:.06em">
+        Loading…
+      </p>
+    </div>
+  </main>
+
+  <!-- ============================================================
+       YOU MAY ALSO LIKE (static placeholder — could be made dynamic)
+       ============================================================ -->
+  <section class="section" style="background:var(--beige)" id="related-section" hidden>
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">You May Also <em>Like</em></h2>
+        <a href="shop.html" class="btn btn-ghost">View All</a>
+      </div>
+      <div class="product-grid" id="related-grid"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h2>Maison</h2>
+          <p>The pursuit of perfection, distilled into every stitch, seam, and silhouette.</p>
+          <a href="shop.html" class="btn btn-light" style="font-size:9px">Shop Now</a>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="shop.html">Collections</a></li>
+            <li><a href="shop.html">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="shop.html?category=bags">Bags</a></li>
+            <li><a href="shop.html?category=jackets">Jackets</a></li>
+            <li><a href="shop.html?category=shoes">Shoes</a></li>
+            <li><a href="shop.html?category=accessories">Accessories</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Client Services</h4>
+          <ul>
+            <li><a href="#">Shipping & Returns</a></li>
+            <li><a href="#">Size Guide</a></li>
+            <li><a href="#">Care Instructions</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 MAISON. All rights reserved.</p>
+        <p>Privacy Policy &nbsp;·&nbsp; Terms of Service</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Sidebar -->
+  <div class="cart-backdrop" id="cart-backdrop"></div>
+  <aside class="cart-sidebar" id="cart-sidebar" role="dialog" aria-label="Shopping cart">
+    <div class="cart-header">
+      <h3>Your Bag</h3>
+      <button class="cart-close" id="cart-close" aria-label="Close cart">✕</button>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-footer" id="cart-footer" style="display:none">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <span id="cart-subtotal">€0</span>
+      </div>
+      <button class="btn-addcart" style="margin-bottom:12px"><span>Proceed to Checkout</span></button>
+      <button class="btn btn-ghost" style="width:100%" onclick="closeCart()">Continue Shopping</button>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="products.js"></script>
+  <script src="script.js"></script>
+
+  <!-- Related products: show same-category items (excluding current) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof products === 'undefined') return;
+      const params  = new URLSearchParams(window.location.search);
+      const id      = params.get('id');
+      const current = products.find(p => p.id === id);
+      if (!current) return;
+
+      const related = products
+        .filter(p => p.category === current.category && p.id !== current.id)
+        .slice(0, 4);
+
+      if (related.length === 0) return;
+
+      const section = document.getElementById('related-section');
+      const grid    = document.getElementById('related-grid');
+      if (!section || !grid) return;
+
+      section.hidden = false;
+      grid.innerHTML = related.map(buildProductCard).join('');
+    });
+  </script>
+</body>
+</html>
