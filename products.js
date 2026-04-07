@@ -123,7 +123,7 @@ const products = [
 
     // Damen → Blusen & Tops → Seidenbluse
   {
-    id: "d-kleid-mini-01",
+    id: "d-bluse-01",
     name: "Bluse mit Monogram-Kragen",
     price: 2900,
     gender: "damen",
@@ -140,6 +140,31 @@ const products = [
     sizes: ["XS", "S", "M", "L", "XL"],
     featured: false,
     collab: "collab-sofia-01"
+  },
+
+    // Damen → Hosen → Weite Hosen
+  {
+    id: "d-hose-01",
+    name: "Ausgestellte Hose aus Monogram-Jacquardgewebe",
+    price: 1800,
+    gender: "damen",
+    category: "Hosen",
+    sub: "Weite Hosen",
+    image: "images/lv-products/d-hosen-01.png",
+    hoverImage: "images/lv-products/d-hosen-02.png",
+    description: "Diese elegante Hose aus Baumwoll-Gabardine präsentiert sich mit einem durchgängigen, Ton in Ton gehaltenen Monogram-Motiv als Jacquardgewebe. Sie zeichnet sich durch eine schlichte, ausgestellte Passform aus. Exakte Bügelfalten auf der Vorder- und Rückseite betonen die Struktur. Details aus goldfarbenem Metall wie ein kuppelförmiger Ankerknopf am Verschluss verweisen auf maritime Attribute.",
+    details: [
+      "100 % Baumwollgarbadine",
+      "Indigoblau",
+      "Reißverschluss mit Knopf",
+      "5 Taschen",
+      "Gürtelschlaufen",
+      "Jacquardgewebe mit Signaturen",
+      "Goldfarbene Elemente aus Metall",
+      "Made in Italy"
+    ],
+    sizes: ["XS", "S", "M", "L", "XL"],
+    featured: false
   },
 
 /*
@@ -236,6 +261,29 @@ const products = [
     collab: "collab-sofia-01"
   },
 */
+  // Damen → Unterwäsche & Nacht → Nachtwäsche
+  {
+    id: "d-hose-01",
+    name: "Schlafanzughose aus Seide",
+    price: 1900,
+    gender: "damen",
+    category: "Unterwäsche & Nacht",
+    sub: "Nachtwäsche",
+    image: "images/lv-products/d-hose-03.png",
+    hoverImage: "images/lv-products/d-hosen-04.png",
+    description: "Diese klassische, mühelos elegante Schlafanzughose aus luftigem Seiden-Krepp zeigt sich in einer fließenden, gerade geschnittenen Passform. Bügelfalten an Vorder- und Rückseite verleihen der Silhouette Struktur, während ein Taillenbund mit Zugband und goldfarbenen Elementen aus Metall das angenehm zu tragende Modell abrundet.",
+    details: [
+      "Seidencady-Krepp aus 100 % Seide",
+      "Off White / Weiß",
+      "Zugband-Verschluss an der Taille",
+      "2 Taschen an den Seiten",
+      "Goldfarbene Elemente aus Metall",
+      "Made in Italy"
+    ],
+    sizes: ["XS", "S", "M", "L", "XL"],
+    featured: false,
+    collab: "collab-sofia-01"
+  },
 
   // Damen → Schuhe → Pumps
   {
@@ -268,7 +316,7 @@ const products = [
     category: "Schuhe",
     sub: "Loafers",
     image: "images/lv-products/d-schuhe-01.png",
-    hoverImage: "images/lv-products/d-schuhe-02.png",
+    hoverImage: "images/lv-products/d-schuhe-02-01.png",
     description: "Der schlanke Odeon Loafer ist aus glänzendem Kalbsleder gearbeitet. Den Schaft zieren raffinierte Signaturen: sternförmige Monogram-Blüten als Perforationen rund um das Oberleder sowie ein Detail aus goldfarbenem Metall in der Form einer halben Monogram-Blüte auf dem Riemen. Eine feine Außensohle aus Leder rundet dieses elegante Modell ab.",
     details: [
       "Glänzendes Kalbsleder",
@@ -290,7 +338,7 @@ const products = [
     category: "Accessoires",
     sub: "Schals",
     image: "images/lv-products/d-schal-01.png",
-    hoverImage: "images/lv-products/d-belt-02.png",
+    hoverImage: "images/lv-products/d-schal-02.png",
     description: "Der ebenso vielseitige wie auch modische My Neverfull Schal verleiht jedem Winter-Outfit einen Hauch von klassischer Raffinesse. Das Modell aus einem warmen, weichen Kaschmirgemisch vereint das unverkennbare Monogram-Motiv mit den ikonischen Neverfull-Streifen aus der Ready to Wear Kollektion. Ein Aufnäher mit der „Articles de Voyage“ Signatur erinnert an das Erbe des Hauses Maison als Hersteller für außergewöhnliche Reiseaccessoires.",
     details: [
       "95 % Wolle, 5 Kaschmir",
@@ -498,7 +546,7 @@ const products = [
     gender: "herren",
     category: "Strickwaren",
     sub: "Pullover",
-    image: "images/lv-products/h-annzuege-05.png",
+    image: "images/lv-products/h-anzueg-05.png",
     hoverImage: "images/lv-products/h-anzueg-06.png",
     description: "Dieser Pullover aus Wolle bildet eine mühelos elegante und zugleich unverkennbare Lage. Er zeigt sich in den violett-indigofarbenen Nuancen der Frühjahr Sommer 2026 Fashion Show. Der Strick erinnert an Häkelarbeiten und bildet melierten Tweed nach. Sich abhebende, dunkle Details aus Rippstrick am Kragen, an den Bündchen sowie am Saum sorgen für ein stilvolles Finish. Die Rückseite ziert ein braunes Marque Maison Déposée Patch aus Leder.",
     details: [
@@ -613,6 +661,100 @@ const products = [
       "Made in Italy"
     ],
     sizes: ["39", "40", "41", "42", "43", "44", "45"],
+    featured: false
+  },
+
+  // Herren → Accessoires → Sonnenbrillen
+  {
+    id: "h-acc-brille-01",
+    name: "Maison Attitude Sonnenbrille",
+    price: 510,
+    gender: "herren",
+    category: "Accessoires",
+    sub: "Sonnenbrillen",
+    image: "images/lv-products/h-brille-01.png",
+    hoverImage: "images/lv-products/h-brille-02.png",
+    description: "Die Maison Attitude Sonnenbrille ist in der aktuellen Saison zurück - mit einer zeitgemäßen Neuinterpretation. Die quadratischen grauen Gläser sind in silberfarbenes Metall gefasst, das sich an den mit Damier-Motiv gravierten Bügeln fortsetzt. Verstellbare Nasenblättchen und Bügelenden sorgen für Komfort und einen modischen Look.",
+    details: [
+      "Rechteckige Form",
+      "Silberfarben",
+      "Rahmen aus Metall",
+      "Schwarze Gläser",
+      "Charakteristische Elemente aus Metall",
+      "Lichtdurchlässigkeit:11%",
+      "UV-Schutz:100%",
+      "Filter-Kategorie:3",
+      "Made in Italy"
+    ],
+    sizes: ["85", "90", "95", "100", "105"],
+    featured: false
+  },
+
+  {
+    id: "h-acc-brille-02",
+    name: "Maison Attitude Square Sonnenbrille",
+    price: 510,
+    gender: "herren",
+    category: "Accessoires",
+    sub: "Sonnenbrillen",
+    image: "images/lv-products/h-brille-03.png",
+    hoverImage: "images/lv-products/h-brille-04-01.png",
+    description: "In dieser Saison präsentiert sich die Maison Attitude Square Sonnenbrille mit einem Design, welches erstmalig für die Frühjahr Sommer 2026 Fashion Show entworfen wurde. Auf der Brücke sowie auf den Bügeln ist ein Damier-Motiv eingraviert. Dunkle schwarze Gläser und Bügel mit einem Ruthenium-Finish sorgen für einen unverkennbar maskulinen Look. Das Modell ist mit Nasenplättchen aus Kunstharz und anpassbaren Bügeln ausgestattet, um optimalen Komfort sowie eine individuelle Passform zu gewährleisten.",
+    details: [
+      "Rechteckige Form",
+      "Silberfarben",
+      "Rahmen aus Metall",
+      "Schwarze Gläser",
+      "Bügel mit Damier-Motiv",
+      "Lichtdurchlässigkeit:11%",
+      "UV-Schutz:100%",
+      "Filter-Kategorie:3",
+      "Made in Italy"
+    ],
+    sizes: ["85", "90", "95", "100", "105"],
+    featured: false
+  },
+
+  {
+    id: "h-acc-brille-02",
+    name: "Attitude",
+    price: 510,
+    gender: "herren",
+    category: "Accessoires",
+    sub: "Sonnenbrillen",
+    image: "images/lv-products/h-brille-05.png",
+    hoverImage: "images/lv-products/h-brille-06.png",
+    description: "Diese Sonnenbrille im Pilotenstil mit quadratischer Form zeichnet sich durch Maison historisches Damier Muster aus mattem und glänzendem Finish auf dem Rahmen aus. Ein zeitloses und klassisches Model.",
+    details: [
+      "Rahmen aus Metall und Azetat",
+      "Auf den Bügeln eingravierte Maison Signatur",
+      "Eingravierte Maison Signatur auf dem Glas",
+      "Lichtdurchlässigkeit:15%",
+      "UV-Schutz:100%",
+      "Filter-Kategorie:3"
+    ],
+    sizes: ["85", "90", "95", "100", "105"],
+    featured: false
+  },
+  {
+    id: "h-acc-brille-02",
+    name: "Attitude",
+    price: 510,
+    gender: "herren",
+    category: "Accessoires",
+    sub: "Sonnenbrillen",
+    image: "images/lv-products/h-brille-07.png",
+    hoverImage: "images/lv-products/h-brille-08.png",
+    description: "IDiese Sonnenbrille im Pilotenstil mit quadratischer Form zeichnet sich durch Maison historisches Damier Muster aus mattem und glänzendem Finish auf dem Rahmen aus. Ein zeitloses und klassisches Model.",
+    details: [
+      "Rahmen aus Metall und Azetat",
+      "Auf den Bügeln eingravierte Maison Signatur",
+      "Eingravierte Maison Signatur auf dem Glas",
+      "Lichtdurchlässigkeit:16%",
+      "UV-Schutz:100%",
+      "Filter-Kategorie:3"
+    ],
+    sizes: ["85", "90", "95", "100", "105"],
     featured: false
   },
 
