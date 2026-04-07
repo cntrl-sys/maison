@@ -658,11 +658,33 @@ const products = [
     ],
     sizes: ["One Size"],
     featured: false
-  }
+  },
 
   /* ───────────────────────────────────────────────────────
      KINDER
   ─────────────────────────────────────────────────────── */
+
+  // Kinder → Mädchen (2–14J) → Krawatten
+  {
+    id: "h-acc-krawatte-01",
+    name: "Lace Dress",
+    price: 2250,
+    gender: "herren",
+    category: "Mädchen (2–14J)",
+    sub: "Kleider",
+    image: "images/lv-products/k-kleid-01-02.png",
+    hoverImage: "images/lv-products/k-kleid-01-01.png",
+    description: "Dieses kurzärmelige Spitzenkleid ist ein elegantes und raffiniertes Kleidungsstück, perfekt für jeden besonderen Anlass. Das raffinierte Design und die Spitzendetails verleihen einem Hauch von Weiblichkeit und Anmut.",
+    details: [
+      "69% Polyamide, 16% Cotton, 15% Viscose",
+      "Weiß",
+      "Kurze Ärmel mit überbackenen Kanten",
+      "Geraffter Rock mit überbackenem Saum",
+      "Made in Italy"
+    ],
+    sizes: ["One Size"],
+    featured: false
+  }
 
 ];
 
