@@ -96,7 +96,7 @@ const products = [
     featured: false
   },
 
-/*
+
     // Damen → Kleider → Minikleider
   {
     id: "d-kleid-mini-01",
@@ -119,7 +119,7 @@ const products = [
     featured: false,
     collab: "collab-sofia-01"
   },
-*/
+
 
     // Damen → Blusen & Tops → Seidenbluse
   {
