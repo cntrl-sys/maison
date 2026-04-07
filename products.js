@@ -546,8 +546,8 @@ const products = [
     gender: "herren",
     category: "Strickwaren",
     sub: "Pullover",
-    image: "images/lv-products/h-anzueg-05.png",
-    hoverImage: "images/lv-products/h-anzueg-06.png",
+    image: "images/lv-products/h-pulli-01.png",
+    hoverImage: "images/lv-products/h-pulli-02.png",
     description: "Dieser Pullover aus Wolle bildet eine mühelos elegante und zugleich unverkennbare Lage. Er zeigt sich in den violett-indigofarbenen Nuancen der Frühjahr Sommer 2026 Fashion Show. Der Strick erinnert an Häkelarbeiten und bildet melierten Tweed nach. Sich abhebende, dunkle Details aus Rippstrick am Kragen, an den Bündchen sowie am Saum sorgen für ein stilvolles Finish. Die Rückseite ziert ein braunes Marque Maison Déposée Patch aus Leder.",
     details: [
       "100 % Wolle",
