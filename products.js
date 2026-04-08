@@ -96,7 +96,7 @@ const products = [
     featured: false
   },
 
-
+/*
     // Damen → Kleider → Minikleider
   {
     id: "d-kleid-mini-01",
@@ -119,7 +119,7 @@ const products = [
     featured: false,
     collab: "collab-sofia-01"
   },
-
+*/
 
     // Damen → Blusen & Tops → Seidenbluse
   {
@@ -167,7 +167,58 @@ const products = [
     featured: false
   },
 
+    // Damen → Röcke → Weite Hosen
+  {
+    id: "d-hose-01",
+    name: "Vollständiger Rock aus Chambray mit Vichy-Karo",
+    price: 2400,
+    gender: "damen",
+    category: "Röcke",
+    sub: "Midiröcke",
+    image: "images/lv-products/d-roeck-01.png",
+    hoverImage: "images/lv-products/d-roeck-02.png",
+    description: "Dieser Rock aus Chambray mit einem Karo-Druck offenbart seine romantische Natur durch seine Silhouette und sein klassisches Motiv.",
+    details: [
+      "52 % Baumwolle, 48 % recyceltes Polyamid",
+      "Elfenbein/Blau",
+      "Ungefüttert",
+      "Webetikett mit Logo",
+      "Normaler Bund",
+      "Elastischer Bund",
+      "Das Model ist 180 cm groß und trägt Größe 38",
+      "Höhe: 75cm",
+      "Goldfarbene Elemente aus Metall"
+    ],
+    sizes: ["XS", "S", "M", "L", "XL"],
+    featured: false
+  },
+  {
+    id: "d-hose-01",
+    name: "Rock aus besticktem Leinen",
+    price: 2750,
+    gender: "damen",
+    category: "Röcke",
+    sub: "Midiröcke",
+    image: "images/lv-products/d-roeck-03.png",
+    hoverImage: "images/lv-products/d-roeck-04.png",
+    description: "Romantische Rüschen und kostbare, handgefertigte Stickereien formen diesen Leinrock zu einer vollen, ausdrucksstarken Silhouette. Leichtigkeit und handwerkliches Können werden durch das charakteristische Symbol des Maison Triangolo-Logos verkörpert.",
+    details: [
+      "100% Leinen",
+      "Weiß",
+      "Geraffte Passform",
+      "Ungefüttertes Modell",
+      "Seitlicher Reißverschluss mit Haken",
+      "Triangolo-Sticklogo",
+      "Rüschen-Detail",
+      "Spitzeneinsätze",
+      "Das Model ist 178 cm groß und trägt Größe 38",
+      "Höhe: 70cm"
+    ],
+    sizes: ["XS", "S", "M", "L", "XL"],
+    featured: false
+  },
 
+/*
   // Damen → Jacken & Mäntel → Wollmantel
   {
     id: "d-mantel-wolle-01",
@@ -190,7 +241,7 @@ const products = [
     featured: false,
     collab: "collab-sofia-01"
   },
-
+*/
 
   // Damen → Jacken & Mäntel → Lederjacke
   {
@@ -217,7 +268,7 @@ const products = [
   },
 
   // Damen → Bademode → Bikini
-
+/*
   {
     id: "d-bademode-bikini-01",
     name: "Bikini",
@@ -260,7 +311,7 @@ const products = [
     featured: false,
     collab: "collab-sofia-01"
   },
-  
+*/
   // Damen → Unterwäsche & Nacht → Nachtwäsche
   {
     id: "d-hose-01",
@@ -489,6 +540,30 @@ const products = [
     sizes: ["XS", "S", "M", "L", "XL", "XXL"],
     featured: true
   },
+     {
+    id: "h-hemd-polo-02",
+    name: "Rundhalspullover aus Seide und Baumwolle",
+    price: 1350,
+    gender: "herren",
+    category: "Hemden",
+    sub: "T-Shirts",
+    image: "images/lv-products/h-shirt-01.png",
+    hoverImage: "images/lv-products/h-shirt-02.png",
+    description: "Ein feiner Seidenstrick und eine Baumwollmischung verleihen diesem kurzärmeligen Pullover einen anspruchsvollen Charakter. Der leichte Stil mit Rundhalsausschnitt und Saum aus Rippstrick ist mit dem tonalen Triangolo-Logo verziert. ",
+    details: [
+      "41% Baumwolle 59% Seide",
+      "Weiß",
+      "Glattstrick",
+      "Normale Passform",
+      "Rundhalsausschnitt aus Rippstrick",
+      "Semi-Raglanschulter",
+      "Ärmelbesatz und Saum aus Rippstrick",
+      "Das Model ist 190 cm groß und trägt Größe 48",
+      "Höhe: 66cm"
+    ],
+    sizes: ["48"],
+    featured: false
+  },
 
   // Herren → Anzüge & Sakkos → Zweiteiliger Anzug
   {
@@ -559,7 +634,7 @@ const products = [
       "Dieses Produkt wird in Italien gefertigt."
     ],
     sizes: ["S", "M", "L", "XL"],
-    featured: true
+    featured: false
   },
 
   // Herren → Jacken & Mäntel → Mantel
@@ -622,7 +697,7 @@ const products = [
     price: 1400,
     gender: "herren",
     category: "Hosen",
-    sub: "jeans",
+    sub: "Jeans",
     image: "images/lv-products/h-jeans-01.png",
     hoverImage: "images/lv-products/h-jeans-02.png",
     description: "Diese legere Hose im Skater-Stil präsentiert das ikonische Coffee Indigo Denim der Frühjahr Sommer 2026 Fashion Show in einer verwaschenen Vintage-Note. Gelbe Ziernähte, altgoldfarbene Nieten und eine Gürtel­schlaufe aus natürlich gegerbtem Rindsleder erinnern an die Tradition des Hauses Maison als Kofferhersteller. Eine charakteristische Stickerei auf der Gesäßtasche vollendet diese vielseitige Optik, die die dezenten Farben dieser Saison perfekt ergänzt.",
@@ -640,6 +715,30 @@ const products = [
     ],
     sizes: ["44", "46", "48", "50", "52", "54"],
     featured: false
+  },
+    {
+    id: "h-hose-anzug-01",
+    name: "Hose aus Denim im Skater-Stil mit Maison x The Darjeeling Limited-Stickerei",
+    price: 2900,
+    gender: "herren",
+    category: "Hosen",
+    sub: "Jeans",
+    image: "images/lv-products/h-jeans-03.png",
+    hoverImage: "images/lv-products/h-jeans-04.png",
+    description: "Diese grafische Denim-Hose im Skater-Stil ist mit dem ikonischen Maison x The Darjeeling Limited-Motiv der Frühjahr Sommer 2026 Show veredelt und präsentiert leuchtende Stickereien von Palmen und Tieren auf dem gesamten Modell. Charakteristische Details sind die Maison-Stickerei auf der rechten Gesäßtasche sowie ein Mini Damier Badge aus Nubukleder. In Kombination mit dem dazu passenden Hemd entsteht ein Gesamtlook.",
+    details: [
+      "100 % Baumwolle",
+      "Passform im Skater-Stil",
+      "Indigoblau",
+      "Durchgängiges Motiv als Stickerei",
+      "Knopfverschluss mit perlenartigem Finish",
+      "Klassisches 5-Pocket-Design",
+      "Badge aus Nubukleder mit Signatur",
+      "Gestickte Signatur auf der Gesäßtasche",
+      "Made in Italy"
+    ],
+    sizes: ["44", "46", "48", "50", "52", "54"],
+    featured: true
   },
 
   // Herren → Schuhe → loafer
@@ -659,6 +758,72 @@ const products = [
       "Charakteristische Details",
       "Außensohle aus Gummi mit den Maison Initialen am Absatz und dem Damier-Motiv auf dem Profil",
       "Made in Italy"
+    ],
+    sizes: ["39", "40", "41", "42", "43", "44", "45"],
+    featured: false
+  },
+  {
+    id: "h-schuh-oxford-01",
+    name: "Loafer aus Wildleder",
+    price: 850,
+    gender: "herren",
+    category: "Schuhe",
+    sub: "Loafer",
+    image: "images/lv-products/h-schuhe-01.png",
+    hoverImage: "images/lv-products/h-schuhe-02-01.png",
+    description: "Diese Loafer aus weichem Wildleder mit einem Innenfutter aus Leder haben eine moderne Silhouette. Das Triangolo-Logo aus emailliertem Metall ziert die Vorderseite.",
+    details: [
+      "Kalbsleder",
+      "Desert",
+      "Band mit emailliertem Triangolo-Logo",
+      "Blatt mit gesteppter Ziernaht",
+      "Leichte Sohle aus Gummi",
+      "Absatzhöhe: 15 mm",
+      "Herausnehmbare lederbezogene Einlegesohle"
+    ],
+    sizes: ["39", "40", "41", "42", "43", "44", "45"],
+    featured: false
+  },
+  {
+    id: "h-schuh-oxford-01",
+    name: "Loafer aus Wildleder",
+    price: 850,
+    gender: "herren",
+    category: "Schuhe",
+    sub: "Loafer",
+    image: "images/lv-products/h-schuhe-05.png",
+    hoverImage: "images/lv-products/h-schuhe-06.png",
+    description: "Diese Loafer aus weichem Wildleder mit einem Innenfutter aus Leder haben eine moderne Silhouette. Das Triangolo-Logo aus emailliertem Metall ziert die Vorderseite.",
+    details: [
+      "Kalbsleder",
+      "Wolkengrau",
+      "Band mit emailliertem Triangolo-Logo",
+      "Blatt mit gesteppter Ziernaht",
+      "Leichte Sohle aus Gummi",
+      "Absatzhöhe: 15 mm",
+      "Herausnehmbare lederbezogene Einlegesohle"
+    ],
+    sizes: ["39", "40", "41", "42", "43", "44", "45"],
+    featured: false
+  },
+  {
+    id: "h-schuh-oxford-01",
+    name: "Loafer aus Leder",
+    price: 990,
+    gender: "herren",
+    category: "Schuhe",
+    sub: "Loafer",
+    image: "images/lv-products/h-schuhe-03.png",
+    hoverImage: "images/lv-products/h-schuhe-04.png",
+    description: "Mit ihrem Design, das eine handwerkliche Essenz ausdrückt, verkörpern diese Loafer einen eleganten, zeitlosen Stil. Die Schuhe aus Leder mit klassischen Linien zeichnen sich durch tonale Nähte und Gummisohlen aus. Der Logo-Schriftzug verleiht dem Schuh einen formellen Stil und einen vielseitigen Charakter.",
+    details: [
+      "Kalbsleder",
+      "Dunkelbraun",
+      "Band aus Leder",
+      "Siebdruck-Logo auf der Zunge",
+      "Sohle aus Leder mit Halbsohle und Absatzschicht aus Gummi",
+      "Absatzhöhe: 30 mm",
+      "nnensohle aus Leder mit Halbsohle aus Leder"
     ],
     sizes: ["39", "40", "41", "42", "43", "44", "45"],
     featured: false
