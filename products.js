@@ -96,7 +96,7 @@ const products = [
     featured: false
   },
 
-/*
+
     // Damen → Kleider → Minikleider
   {
     id: "d-kleid-mini-01",
@@ -119,7 +119,6 @@ const products = [
     featured: false,
     collab: "collab-sofia-01"
   },
-*/
 
     // Damen → Blusen & Tops → Seidenbluse
   {
@@ -218,7 +217,7 @@ const products = [
     featured: false
   },
 
-/*
+
   // Damen → Jacken & Mäntel → Wollmantel
   {
     id: "d-mantel-wolle-01",
@@ -268,7 +267,7 @@ const products = [
   },
 
   // Damen → Bademode → Bikini
-/*
+
   {
     id: "d-bademode-bikini-01",
     name: "Bikini",
@@ -311,7 +310,7 @@ const products = [
     featured: false,
     collab: "collab-sofia-01"
   },
-*/
+
   // Damen → Unterwäsche & Nacht → Nachtwäsche
   {
     id: "d-hose-01",
