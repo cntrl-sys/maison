@@ -96,7 +96,7 @@ const products = [
     featured: false
   },
 
-
+/*
     // Damen → Kleider → Minikleider
   {
     id: "d-kleid-mini-01",
@@ -119,6 +119,7 @@ const products = [
     featured: false,
     collab: "collab-sofia-01"
   },
+*/
 
     // Damen → Blusen & Tops → Seidenbluse
   {
@@ -153,7 +154,7 @@ const products = [
     hoverImage: "images/lv-products/d-hosen-02.png",
     description: "Diese elegante Hose aus Baumwoll-Gabardine präsentiert sich mit einem durchgängigen, Ton in Ton gehaltenen Monogram-Motiv als Jacquardgewebe. Sie zeichnet sich durch eine schlichte, ausgestellte Passform aus. Exakte Bügelfalten auf der Vorder- und Rückseite betonen die Struktur. Details aus goldfarbenem Metall wie ein kuppelförmiger Ankerknopf am Verschluss verweisen auf maritime Attribute.",
     details: [
-      "100 % Baumwollgarbadine",
+      "100 % BaumwollGabardine",
       "Indigoblau",
       "Reißverschluss mit Knopf",
       "5 Taschen",
@@ -168,7 +169,7 @@ const products = [
 
     // Damen → Röcke → Weite Hosen
   {
-    id: "d-hose-01",
+    id: "d-hose-02",
     name: "Vollständiger Rock aus Chambray mit Vichy-Karo",
     price: 2400,
     gender: "damen",
@@ -192,7 +193,7 @@ const products = [
     featured: false
   },
   {
-    id: "d-hose-01",
+    id: "d-hose-03",
     name: "Rock aus besticktem Leinen",
     price: 2750,
     gender: "damen",
@@ -217,7 +218,7 @@ const products = [
     featured: false
   },
 
-
+/*
   // Damen → Jacken & Mäntel → Wollmantel
   {
     id: "d-mantel-wolle-01",
@@ -254,7 +255,7 @@ const products = [
     hoverImage: "https://de.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-jacke-im-utility-stil-mit-sich-farblich-abhebenden-ziernahten--FVJA13BT9001_PM1_Worn%20view.png?wid=1440&hei=1440",
     description: "Sich farblich abhebende Ziernähte setzen die Konstruktion dieser legeren Jacke aus Baumwoll-Gabardine eindrucksvoll in Szene und verleihen ihr eine elegante Utility-Note. Zwei Pattentaschen auf der Brust unterstreichen die strukturierte Silhouette. Maison Circle Knöpfe aus Metall und ein Maison 1854 Patch aus Leder an der Taille runden das Modell als subtile Signaturen aus der Nautical Kollektion ab.",
     details: [
-      "100 % Baumwollgarbadine",
+      "100 % BaumwollGabardine",
       "Patch aus Kalbsleder mit Signatur",
       "Knopfverschlüsse",
       "2 Pattentaschen",
@@ -267,7 +268,7 @@ const products = [
   },
 
   // Damen → Bademode → Bikini
-
+/*
   {
     id: "d-bademode-bikini-01",
     name: "Bikini",
@@ -277,7 +278,7 @@ const products = [
     sub: "Bikini",
     image: "images/step 43/2026-03-29_15-17-55_2773.png",
     hoverImage: "images/step 43/2026-03-29_15-29-56_1478.png",
-    description: "Red Bikni",
+    description: "Red Bikini",
     details: [
       "Nappa Lammlederleder",
       "Viskose-Futter",
@@ -298,7 +299,7 @@ const products = [
     sub: "Bikini",
     image: "images/step 48/2026-03-31_07-46-44_4748.png",
     hoverImage: "images/step 48/2026-03-31_07-45-37_1179.png",
-    description: "Beige Bikni",
+    description: "Beige Bikini",
     details: [
       "Nappa Lammlederleder",
       "Viskose-Futter",
@@ -310,7 +311,7 @@ const products = [
     featured: false,
     collab: "collab-sofia-01"
   },
-
+*/
   // Damen → Unterwäsche & Nacht → Nachtwäsche
   {
     id: "d-hose-01",
@@ -540,7 +541,7 @@ const products = [
     featured: true
   },
      {
-    id: "h-hemd-polo-02",
+    id: "h-hemd-polo-03",
     name: "Rundhalspullover aus Seide und Baumwolle",
     price: 1350,
     gender: "herren",
@@ -570,7 +571,7 @@ const products = [
     name: "Zweireihige Smoking Jacke",
     price: 3200,
     gender: "herren",
-    category: "Anüge & Sakkos",
+    category: "Anzüge & Sakkos",
     sub: "Zweiteiliger Anzug",
     image: "images/lv-products/h-anzueg-01.png",
     hoverImage: "images/lv-products/h-anzueg-02.png",
@@ -663,7 +664,7 @@ const products = [
   },
 
   {
-    id: "h-mantel-012",
+    id: "h-mantel-02",
     name: "Langärmeliges Hemd aus Coffee Indigo Denim",
     price: 2200,
     gender: "herren",
@@ -716,7 +717,7 @@ const products = [
     featured: false
   },
     {
-    id: "h-hose-anzug-01",
+    id: "h-hose-anzug-2",
     name: "Hose aus Denim im Skater-Stil mit Maison x The Darjeeling Limited-Stickerei",
     price: 2900,
     gender: "herren",
@@ -762,7 +763,7 @@ const products = [
     featured: false
   },
   {
-    id: "h-schuh-oxford-01",
+    id: "h-schuh-oxford-02",
     name: "Loafer aus Wildleder",
     price: 850,
     gender: "herren",
@@ -784,7 +785,7 @@ const products = [
     featured: false
   },
   {
-    id: "h-schuh-oxford-01",
+    id: "h-schuh-oxford-03",
     name: "Loafer aus Wildleder",
     price: 850,
     gender: "herren",
@@ -806,7 +807,7 @@ const products = [
     featured: false
   },
   {
-    id: "h-schuh-oxford-01",
+    id: "h-schuh-oxford-04",
     name: "Loafer aus Leder",
     price: 990,
     gender: "herren",
@@ -822,7 +823,7 @@ const products = [
       "Siebdruck-Logo auf der Zunge",
       "Sohle aus Leder mit Halbsohle und Absatzschicht aus Gummi",
       "Absatzhöhe: 30 mm",
-      "nnensohle aus Leder mit Halbsohle aus Leder"
+      "innensohle aus Leder mit Halbsohle aus Leder"
     ],
     sizes: ["39", "40", "41", "42", "43", "44", "45"],
     featured: false
@@ -880,7 +881,7 @@ const products = [
   },
 
   {
-    id: "h-acc-brille-02",
+    id: "h-acc-brille-03",
     name: "Attitude",
     price: 510,
     gender: "herren",
@@ -901,7 +902,7 @@ const products = [
     featured: false
   },
   {
-    id: "h-acc-brille-02",
+    id: "h-acc-brille-04",
     name: "Attitude",
     price: 510,
     gender: "herren",
@@ -975,7 +976,7 @@ const products = [
     id: "h-acc-krawatte-01",
     name: "Lace Dress",
     price: 2250,
-    gender: "herren",
+    gender: "Kinder",
     category: "Mädchen (2–14J)",
     sub: "Kleider",
     image: "images/lv-products/k-kleid-01-02.png",
