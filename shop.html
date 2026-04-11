@@ -868,5 +868,29 @@
 
   })();
   </script>
+<script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2026/04/11/08/20260411081248-1VGMLJEO.js" defer></script>
+<script>
+function moveBotpress() {
+  const el = document.querySelector('#bp-web-widget-container');
+  if (!el) return false;
+
+  el.style.position = "fixed";
+  el.style.left = "32px";
+  el.style.right = "auto";
+  el.style.bottom = "80px";
+  el.style.top = "auto";
+  el.style.zIndex = "2147483647";
+
+  return true;
+}
+
+// Botpress lädt verzögert → wir warten
+const interval = setInterval(() => {
+  if (moveBotpress()) {
+    clearInterval(interval);
+  }
+}, 300);
+</script>
 </body>
 </html>

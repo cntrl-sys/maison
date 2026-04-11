@@ -96,7 +96,7 @@ const products = [
     featured: false
   },
 
-
+/*
     // Damen → Kleider → Minikleider
   {
     id: "d-kleid-mini-01",
@@ -119,7 +119,7 @@ const products = [
     featured: false,
     collab: "collab-sofia-01"
   },
-
+*/
 
     // Damen → Blusen & Tops → Seidenbluse
   {
@@ -166,8 +166,252 @@ const products = [
     sizes: ["XS", "S", "M", "L", "XL"],
     featured: false
   },
+    {
+    id: "d-hose-02",
+    name: "Leinen Hose",
+    price: 1900,
+    gender: "damen",
+    category: "Hosen",
+    sub: "Weite Hosen",
+    image: "images/fooocus/2026-04-11_12-29-46_3144.png",
+    hoverImage: "images/fooocus/2026-04-11_12-32-57_3056.png",
+    description: "Diese klassische, mühelos elegante Schlafanzughose aus luftigem Seiden-Krepp zeigt sich in einer fließenden, gerade geschnittenen Passform. Bügelfalten an Vorder- und Rückseite verleihen der Silhouette Struktur, während ein Taillenbund mit Zugband und goldfarbenen Elementen aus Metall das angenehm zu tragende Modell abrundet.",
+    details: [
+      "100 % Leinen",
+      "Off White / Weiß",
+      "Zugband-Verschluss an der Taille",
+      "2 Taschen an den Seiten",
+      "Made in Italy"
+    ],
+    sizes: ["XS", "S", "M", "L", "XL"],
+    featured: false,
+    collab: "collab-sofia-01"
+  },
+      {
+    id: "d-hose-03",
+    name: "Leinen Hose",
+    price: 1900,
+    gender: "damen",
+    category: "Hosen",
+    sub: "Weite Hosen",
+    image: "images/fooocus/2026-04-11_12-30-50_5494.png",
+    hoverImage: "images/fooocus/2026-04-11_12-46-45_8449.png",
+    description: "Diese klassische, mühelos elegante Schlafanzughose aus luftigem Seiden-Krepp zeigt sich in einer fließenden, gerade geschnittenen Passform. Bügelfalten an Vorder- und Rückseite verleihen der Silhouette Struktur, während ein Taillenbund mit Zugband und goldfarbenen Elementen aus Metall das angenehm zu tragende Modell abrundet.",
+    details: [
+      "100 % Leinen",
+      "Off White / Weiß",
+      "Zugband-Verschluss an der Taille",
+      "2 Taschen an den Seiten",
+      "Made in Italy"
+    ],
+    sizes: ["XS", "S", "M", "L", "XL"],
+    featured: false,
+    collab: "collab-sofia-01"
+  },
+  {
+    id: "d-hose-04",
+    name: "Leinen Hose",
+    price: 1900,
+    gender: "damen",
+    category: "Hosen",
+    sub: "Weite Hosen",
+    image: "images/fooocus/2026-04-11_12-34-01_3719.png",
+    hoverImage: "images/fooocus/2026-04-11_12-32-57_3056.png",
+    description: "Diese klassische, mühelos elegante Schlafanzughose aus luftigem Seiden-Krepp zeigt sich in einer fließenden, gerade geschnittenen Passform. Bügelfalten an Vorder- und Rückseite verleihen der Silhouette Struktur, während ein Taillenbund mit Zugband und goldfarbenen Elementen aus Metall das angenehm zu tragende Modell abrundet.",
+    details: [
+      "100 % Leinen",
+      "Off White / Weiß",
+      "Zugband-Verschluss an der Taille",
+      "2 Taschen an den Seiten",
+      "Made in Italy"
+    ],
+    sizes: ["XS", "S", "M", "L", "XL"],
+    featured: false,
+    collab: "collab-sofia-01"
+  },
 
     // Damen → Röcke → Weite Hosen
+      {
+    id: "d-hose-04",
+    name: "Rock",
+    price: 2750,
+    gender: "damen",
+    category: "Röcke",
+    sub: "Miniröcke",
+    image: "images/fooocus/2026-04-10_09-07-31_2693.png",
+    hoverImage: "images/fooocus/2026-04-11_12-15-03_6915.png",
+    description: "Dieser Minirock aus der Laufsteg-Kollektion präsentiert einen edlen Preppy-Look in Mikado-Seiden-Wollgewebe mit einem Futter aus Seide. Breite Plisséefalten verleihen der Silhouette Volumen, während der breite Bund durch eine Ton in Ton gehaltene Absteppnaht strukturiert ist. Hinten wird der Rock mit einem goldfarbenen Reißverschluss geschlossen, der über einen charakteristischen Maison Initials Reißverschlussschieber verfügt.",
+    details: [
+      "100% Baumwolle",
+      "Schwarz",
+      "Ungefüttertes Modell",
+      "Das Model ist 150 cm groß und trägt Größe 38",
+      "Höhe: 50cm"
+    ],
+    sizes: ["XS", "S", "M", "L", "XL"],
+    featured: false
+  },
+    {
+    id: "d-hose-04",
+    name: "Rock",
+    price: 2750,
+    gender: "damen",
+    category: "Röcke",
+    sub: "Miniröcke",
+    image: "images/fooocus/2026-04-11_12-11-02_2075.png",
+    hoverImage: "images/fooocus/2026-04-11_12-10-02_1359.png",
+    description: "Dieser Minirock aus der Laufsteg-Kollektion präsentiert einen edlen Preppy-Look in Mikado-Seiden-Wollgewebe mit einem Futter aus Seide. Breite Plisséefalten verleihen der Silhouette Volumen, während der breite Bund durch eine Ton in Ton gehaltene Absteppnaht strukturiert ist. Hinten wird der Rock mit einem goldfarbenen Reißverschluss geschlossen, der über einen charakteristischen Maison Initials Reißverschlussschieber verfügt.",
+    details: [
+      "100% Baumwolle",
+      "Schwarz",
+      "Ungefüttertes Modell",
+      "Das Model ist 150 cm groß und trägt Größe 38",
+      "Höhe: 50cm"
+    ],
+    sizes: ["XS", "S", "M", "L", "XL"],
+    featured: false
+  },
+    {
+    id: "d-hose-05",
+    name: "Rock",
+    price: 2750,
+    gender: "damen",
+    category: "Röcke",
+    sub: "Miniröcke",
+    image: "images/fooocus/2026-04-10_09-09-48_9628.png",
+    hoverImage: "images/fooocus/2026-04-11_12-10-02_1359.png",
+    description: "Dieser Minirock aus der Laufsteg-Kollektion präsentiert einen edlen Preppy-Look in Mikado-Seiden-Wollgewebe mit einem Futter aus Seide. Breite Plisséefalten verleihen der Silhouette Volumen, während der breite Bund durch eine Ton in Ton gehaltene Absteppnaht strukturiert ist. Hinten wird der Rock mit einem goldfarbenen Reißverschluss geschlossen, der über einen charakteristischen Maison Initials Reißverschlussschieber verfügt.",
+    details: [
+      "100% Baumwolle",
+      "Schwarz",
+      "Ungefüttertes Modell",
+      "Das Model ist 150 cm groß und trägt Größe 38",
+      "Höhe: 50cm"
+    ],
+    sizes: ["XS", "S", "M", "L", "XL"],
+    featured: false
+  },
+    {
+    id: "d-hose-06",
+    name: "Rock",
+    price: 2750,
+    gender: "damen",
+    category: "Röcke",
+    sub: "Miniröcke",
+    image: "images/fooocus/2026-04-10_10-44-59_9935.png",
+    hoverImage: "images/fooocus/2026-04-10_10-46-05_6641.png",
+    description: "Dieser Minirock aus der Laufsteg-Kollektion präsentiert einen edlen Preppy-Look in Mikado-Seiden-Wollgewebe mit einem Futter aus Seide. Breite Plisséefalten verleihen der Silhouette Volumen, während der breite Bund durch eine Ton in Ton gehaltene Absteppnaht strukturiert ist. Hinten wird der Rock mit einem goldfarbenen Reißverschluss geschlossen, der über einen charakteristischen Maison Initials Reißverschlussschieber verfügt.",
+    details: [
+      "100% Baumwolle",
+      "Schwarz",
+      "Ungefüttertes Modell",
+      "Das Model ist 150 cm groß und trägt Größe 38",
+      "Höhe: 50cm"
+    ],
+    sizes: ["XS", "S", "M", "L", "XL"],
+    featured: false
+  },
+  {
+    id: "d-hose-07",
+    name: "Rock",
+    price: 2750,
+    gender: "damen",
+    category: "Röcke",
+    sub: "Miniröcke",
+    image: "images/fooocus/2026-04-11_10-33-02_6004.png",
+    hoverImage: "images/fooocus/2026-04-11_10-34-02_9622.png",
+    description: "Dieser Minirock aus der Laufsteg-Kollektion präsentiert einen edlen Preppy-Look in Mikado-Seiden-Wollgewebe mit einem Futter aus Seide. Breite Plisséefalten verleihen der Silhouette Volumen, während der breite Bund durch eine Ton in Ton gehaltene Absteppnaht strukturiert ist. Hinten wird der Rock mit einem goldfarbenen Reißverschluss geschlossen, der über einen charakteristischen Maison Initials Reißverschlussschieber verfügt.",
+    details: [
+      "100% Baumwolle",
+      "Beige",
+      "Ungefüttertes Modell",
+      "Das Model ist 150 cm groß und trägt Größe 38",
+      "Höhe: 50cm"
+    ],
+    sizes: ["XS", "S", "M", "L", "XL"],
+    featured: false
+  },
+  {
+    id: "d-hose-08",
+    name: "Rock",
+    price: 2750,
+    gender: "damen",
+    category: "Röcke",
+    sub: "Miniröcke",
+    image: "images/fooocus/2026-04-11_10-32-01_6695.png",
+    hoverImage: "images/fooocus/2026-04-11_10-40-57_1471.png",
+    description: "Dieser Minirock aus der Laufsteg-Kollektion präsentiert einen edlen Preppy-Look in Mikado-Seiden-Wollgewebe mit einem Futter aus Seide. Breite Plisséefalten verleihen der Silhouette Volumen, während der breite Bund durch eine Ton in Ton gehaltene Absteppnaht strukturiert ist. Hinten wird der Rock mit einem goldfarbenen Reißverschluss geschlossen, der über einen charakteristischen Maison Initials Reißverschlussschieber verfügt.",
+    details: [
+      "100% Baumwolle",
+      "Beige",
+      "Ungefüttertes Modell",
+      "Das Model ist 150 cm groß und trägt Größe 38",
+      "Höhe: 50cm"
+    ],
+    sizes: ["XS", "S", "M", "L", "XL"],
+    featured: false
+  },
+  {
+    id: "d-hose-09",
+    name: "Rock",
+    price: 2750,
+    gender: "damen",
+    category: "Röcke",
+    sub: "Miniröcke",
+    image: "images/fooocus/2026-04-11_10-46-57_8605.png",
+    hoverImage: "images/fooocus/2026-04-11_10-50-57_7124.png",
+    description: "Dieser Minirock aus der Laufsteg-Kollektion präsentiert einen edlen Preppy-Look in Mikado-Seiden-Wollgewebe mit einem Futter aus Seide. Breite Plisséefalten verleihen der Silhouette Volumen, während der breite Bund durch eine Ton in Ton gehaltene Absteppnaht strukturiert ist. Hinten wird der Rock mit einem goldfarbenen Reißverschluss geschlossen, der über einen charakteristischen Maison Initials Reißverschlussschieber verfügt.",
+    details: [
+      "100% Baumwolle",
+      "Beige",
+      "Ungefüttertes Modell",
+      "Das Model ist 150 cm groß und trägt Größe 38",
+      "Höhe: 50cm"
+    ],
+    sizes: ["XS", "S", "M", "L", "XL"],
+    featured: false
+  },
+  {
+    id: "d-hose-10",
+    name: "Rock",
+    price: 2750,
+    gender: "damen",
+    category: "Röcke",
+    sub: "Miniröcke",
+    image: "images/fooocus/2026-04-11_11-10-46_5435.png",
+    hoverImage: "images/fooocus/2026-04-11_11-01-52_7369.png",
+    description: "Dieser Minirock aus der Laufsteg-Kollektion präsentiert einen edlen Preppy-Look in Mikado-Seiden-Wollgewebe mit einem Futter aus Seide. Breite Plisséefalten verleihen der Silhouette Volumen, während der breite Bund durch eine Ton in Ton gehaltene Absteppnaht strukturiert ist. Hinten wird der Rock mit einem goldfarbenen Reißverschluss geschlossen, der über einen charakteristischen Maison Initials Reißverschlussschieber verfügt.",
+    details: [
+      "100% Baumwolle",
+      "Beige",
+      "Ungefüttertes Modell",
+      "Das Model ist 150 cm groß und trägt Größe 38",
+      "Höhe: 50cm"
+    ],
+    sizes: ["XS", "S", "M", "L", "XL"],
+    featured: false
+  },
+  {
+    id: "d-hose-11",
+    name: "Rock",
+    price: 2750,
+    gender: "damen",
+    category: "Röcke",
+    sub: "Miniröcke",
+    image: "images/fooocus/2026-04-10_11-02-30_2004.png",
+    hoverImage: "images/fooocus/2026-04-10_11-04-42_2618.png",
+    description: "Dieser Minirock aus der Laufsteg-Kollektion präsentiert einen edlen Preppy-Look in Mikado-Seiden-Wollgewebe mit einem Futter aus Seide. Breite Plisséefalten verleihen der Silhouette Volumen, während der breite Bund durch eine Ton in Ton gehaltene Absteppnaht strukturiert ist. Hinten wird der Rock mit einem goldfarbenen Reißverschluss geschlossen, der über einen charakteristischen Maison Initials Reißverschlussschieber verfügt.",
+    details: [
+      "100% Baumwolle",
+      "Beige",
+      "Ungefüttertes Modell",
+      "Das Model ist 150 cm groß und trägt Größe 38",
+      "Höhe: 50cm"
+    ],
+    sizes: ["XS", "S", "M", "L", "XL"],
+    featured: false
+  },
+
   {
     id: "d-hose-02",
     name: "Vollständiger Rock aus Chambray mit Vichy-Karo",
@@ -219,6 +463,7 @@ const products = [
   },
 
 
+/*
   // Damen → Jacken & Mäntel → Wollmantel
   {
     id: "d-mantel-wolle-01",
@@ -241,7 +486,7 @@ const products = [
     featured: false,
     collab: "collab-sofia-01"
   },
-
+*/
 
   // Damen → Jacken & Mäntel → Lederjacke
   {
@@ -268,7 +513,7 @@ const products = [
   },
 
   // Damen → Bademode → Bikini
-
+/*
   {
     id: "d-bademode-bikini-01",
     name: "Bikini",
@@ -311,7 +556,7 @@ const products = [
     featured: false,
     collab: "collab-sofia-01"
   },
-
+*/
   // Damen → Unterwäsche & Nacht → Nachtwäsche
   {
     id: "d-hose-01",
