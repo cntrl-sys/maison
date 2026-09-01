@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAISON ARCHITECTURE — Experience</title>
+  <meta name="description" content="Walking through the MAISON ARCHITECTURE identity — a spatial, motion-driven exploration of the house's signature pattern and craft.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="experience.css">
+</head>
+<body class="page-fade">
+
+  <!-- ============================================================
+       NAVIGATION (identical to the rest of the site)
+       ============================================================ -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="shop.html"  class="nav-link">Shop</a></li>
+        <li><a href="collections.html"  class="nav-link">Collections</a></li>
+        <li><a href="experience.html" class="nav-link">Experience</a></li>
+      </ul>
+      <a href="index.html" class="nav-logo">Maison</a>
+      <div class="nav-actions">
+        <a href="shop.html" class="nav-link">About</a>
+        <button class="nav-cart" data-open-cart aria-label="Open cart">
+          Bag&nbsp;<span class="cart-count">0</span>
+        </button>
+        <button class="nav-burger" id="nav-burger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true">
+    <button class="mobile-close" id="mobile-close" aria-label="Close menu">✕</button>
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="shop.html"  class="nav-link">Shop</a>
+    <a href="collections.html"  class="nav-link">Collections</a>
+    <a href="experience.html" class="nav-link">Experience</a>
+    <a href="shop.html"  class="nav-link">About</a>
+    <button class="nav-link" data-open-cart>Bag (<span class="cart-count">0</span>)</button>
+  </div>
+
+  <!-- ============================================================
+       INTRO
+       ============================================================ -->
+  <section class="xp-intro">
+    <div class="xp-intro-pattern" aria-hidden="true"></div>
+    <div class="xp-intro-inner">
+      <p class="label">Experience</p>
+      <h1>MAISON<br><em>Architecture</em></h1>
+      <p>Four signature motifs — the Arch, the Window, the Column, the Rosette — form a spatial identity. Scroll to walk through it.</p>
+    </div>
+    <div class="xp-scroll-cue">
+      <span>Scroll</span>
+      <svg viewBox="0 0 16 24"><path d="M8 3v14M2 12l6 7 6-7"/></svg>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 01 — THE PATTERN — 3D scroll tunnel
+       ============================================================ -->
+  <section class="xp-pattern-section" id="xp-pattern-section">
+    <div class="xp-pattern-sticky" id="xp-pattern-sticky">
+      <div class="xp-section-head">
+        <p class="label">Section 01</p>
+        <h2>The <em>Pattern</em></h2>
+      </div>
+      <div class="xp-tunnel" id="xp-tunnel"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 02 — THE OBJECT — 2.5D product rotation
+       ============================================================ -->
+  <section class="xp-object-section" id="xp-object-section">
+    <div class="xp-object-sticky">
+      <div class="xp-section-head">
+        <p class="label">Section 02</p>
+        <h2>The <em>Object</em></h2>
+      </div>
+      <div class="xp-object-stage" id="xp-object-stage">
+        <img class="xp-obj-front" src="images/013.png" alt="MAISON ARCHITECTURE Baby Blue Mini Dress — front view">
+        <img class="xp-obj-back"  src="images/014.png" alt="MAISON ARCHITECTURE Baby Blue Mini Dress — detail view">
+      </div>
+      <p class="xp-object-progress" id="xp-object-progress">0° — 0%</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 03 — THE COLLECTION
+       ============================================================ -->
+  <section class="xp-collection-section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <p class="label">Section 03</p>
+          <h2 class="section-title">The <em>Collection</em></h2>
+        </div>
+        <a href="shop.html" class="btn btn-ghost" style="flex-shrink:0">Shop All</a>
+      </div>
+      <div class="product-grid" id="xp-collection-grid"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       OUTRO
+       ============================================================ -->
+  <section class="xp-outro">
+    <div class="container">
+      <h2>Continue the <em>Journey</em></h2>
+      <a href="shop.html" class="btn btn-light">
+        Explore Full Collection
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M2 7h10M8 3l4 4-4 4"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h2>Maison</h2>
+          <p>The pursuit of perfection, distilled into every stitch, seam, and silhouette.</p>
+          <a href="shop.html" class="btn btn-light" style="font-size:9px">Shop Now</a>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="shop.html">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Abteilungen</h4>
+          <ul>
+            <li><a href="shop.html?gender=damen">Damen</a></li>
+            <li><a href="shop.html?gender=herren">Herren</a></li>
+            <li><a href="shop.html?gender=kinder">Kinder</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Client Services</h4>
+          <ul>
+            <li><a href="#">Shipping & Returns</a></li>
+            <li><a href="#">Size Guide</a></li>
+            <li><a href="#">Care Instructions</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 MAISON. All rights reserved.</p>
+        <p>Privacy Policy &nbsp;·&nbsp; Terms of Service</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Sidebar (shared markup/logic with the rest of the site) -->
+  <div class="cart-backdrop" id="cart-backdrop"></div>
+  <aside class="cart-sidebar" id="cart-sidebar" role="dialog" aria-label="Shopping cart">
+    <div class="cart-header">
+      <h3>Your Bag</h3>
+      <button class="cart-close" id="cart-close" aria-label="Close cart">✕</button>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-footer" id="cart-footer" style="display:none">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <span id="cart-subtotal">€0</span>
+      </div>
+      <button class="btn-addcart" style="margin-bottom:12px"><span>Proceed to Checkout</span></button>
+      <button class="btn btn-ghost" style="width:100%" onclick="closeCart()">Continue Shopping</button>
+    </div>
+  </aside>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="products.js"></script>
+  <script src="script.js"></script>
+  <script src="experience.js"></script>
+</body>
+</html>

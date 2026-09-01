@@ -1,0 +1,199 @@
+/* ============================================================
+   MAISON ARCHITECTURE — Experience Page
+   experience.css  |  loaded only by experience.html
+   ============================================================ */
+
+/* ── Intro ─────────────────────────────────────────────────── */
+.xp-intro {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--white);
+  padding: calc(var(--nav-h) + 40px) var(--gutter) 80px;
+  position: relative;
+  overflow: hidden;
+}
+.xp-intro-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: url('images/pattern_neu.png');
+  background-size: 420px auto;
+  background-repeat: repeat;
+  opacity: 0.05;
+}
+.xp-intro-inner { position: relative; z-index: 1; max-width: 720px; }
+.xp-intro .label { color: var(--deep-navy); margin-bottom: 20px; }
+.xp-intro h1 {
+  font-size: clamp(44px, 8vw, 108px);
+  font-weight: 300;
+  line-height: 0.98;
+  color: var(--deep-navy);
+  margin-bottom: 24px;
+}
+.xp-intro h1 em { color: var(--baby-blue); font-style: italic; -webkit-text-stroke: 1px var(--deep-navy); }
+.xp-intro p {
+  font-size: clamp(13px, 1.3vw, 16px);
+  color: var(--warm-gray);
+  max-width: 460px;
+  margin: 0 auto 40px;
+  line-height: 1.8;
+}
+.xp-scroll-cue {
+  position: absolute;
+  bottom: 40px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--warm-gray);
+  animation: xpBounce 2.4s ease-in-out infinite;
+}
+.xp-scroll-cue svg { width: 14px; height: 22px; stroke: var(--deep-navy); fill: none; stroke-width: 1.2; }
+@keyframes xpBounce {
+  0%, 100% { transform: translate(-50%, 0); }
+  50%      { transform: translate(-50%, 8px); }
+}
+
+/* ── Section headers, shared ─────────────────────────────────── */
+.xp-section-head {
+  position: absolute;
+  top: clamp(90px, 12vh, 130px);
+  left: 0; right: 0;
+  text-align: center;
+  z-index: 5;
+  pointer-events: none;
+}
+.xp-section-head .label { margin-bottom: 10px; }
+.xp-section-head h2 { font-size: clamp(28px, 4.5vw, 52px); font-weight: 300; }
+
+/* ============================================================
+   SECTION 01 — THE PATTERN — 3D scroll-driven tunnel
+   ============================================================ */
+.xp-pattern-section {
+  position: relative;
+  height: 320vh;
+  background: var(--white);
+}
+.xp-pattern-sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+  perspective: 900px;
+  background: radial-gradient(circle at 50% 55%, var(--baby-blue) 0%, var(--white) 65%);
+}
+.xp-pattern-section .xp-section-head .label { color: var(--deep-navy); }
+.xp-pattern-section .xp-section-head h2 { color: var(--deep-navy); }
+
+.xp-tunnel {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.xp-tile {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 72px; height: 72px;
+  display: flex; align-items: center; justify-content: center;
+  transform-style: preserve-3d;
+  color: var(--deep-navy);
+  opacity: 0.9;
+}
+.xp-tile svg { width: 100%; height: 100%; }
+.xp-tile.xp-tile-accent { color: var(--baby-blue); filter: drop-shadow(0 0 12px rgba(220,238,255,0.6)); }
+.xp-tile.xp-tile-black { color: var(--black); }
+
+@media (prefers-reduced-motion: reduce) {
+  .xp-pattern-section { height: auto; }
+  .xp-pattern-sticky { position: relative; height: 70vh; }
+  .xp-tunnel { transform: none !important; }
+}
+
+/* ============================================================
+   SECTION 02 — THE OBJECT — 2.5D product rotation
+   ============================================================ */
+.xp-object-section {
+  position: relative;
+  height: 260vh;
+  background: var(--deep-navy);
+}
+.xp-object-sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1400px;
+}
+.xp-object-section .xp-section-head .label { color: var(--baby-blue); }
+.xp-object-section .xp-section-head h2 { color: var(--white); }
+
+.xp-object-stage {
+  position: relative;
+  width: min(380px, 56vw);
+  aspect-ratio: 3/4;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.xp-object-stage img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: contain;
+  backface-visibility: hidden;
+  filter: drop-shadow(0 40px 80px rgba(0,0,0,0.45));
+}
+.xp-object-stage .xp-obj-back { transform: rotateY(180deg); }
+.xp-object-progress {
+  position: absolute;
+  bottom: clamp(40px, 8vh, 72px);
+  left: 50%; transform: translateX(-50%);
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  z-index: 5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .xp-object-section { height: auto; }
+  .xp-object-sticky { position: relative; height: auto; padding: 100px 0; }
+  .xp-object-stage { transform: none !important; }
+}
+
+/* ============================================================
+   SECTION 03 — THE COLLECTION
+   ============================================================ */
+.xp-collection-section {
+  padding: clamp(100px, 14vh, 160px) 0;
+  background: var(--white);
+}
+.xp-collection-section .section-header { margin-bottom: clamp(40px, 5vw, 64px); }
+
+/* ── Outro CTA ────────────────────────────────────────────── */
+.xp-outro {
+  padding: clamp(90px, 14vh, 150px) 0;
+  background: var(--black);
+  color: var(--white);
+  text-align: center;
+}
+.xp-outro h2 { font-size: clamp(30px, 4.5vw, 56px); font-weight: 300; margin-bottom: 28px; }
+.xp-outro h2 em { color: var(--baby-blue); font-style: italic; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .xp-pattern-section { height: 240vh; }
+  .xp-object-section  { height: 200vh; }
+}
+
+@media (max-width: 768px) {
+  .xp-tile { width: 52px; height: 52px; }
+  .xp-pattern-section { height: 180vh; }
+  .xp-object-section  { height: 170vh; }
+  .xp-object-stage    { width: 68vw; }
+}

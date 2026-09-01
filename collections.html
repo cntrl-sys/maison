@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collections — MAISON</title>
+  <meta name="description" content="MAISON Collections — ein digitales Lookbook. Entdecke MAISON ARCHITECTURE, Spring / Summer 2027.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="collections.css">
+</head>
+<body class="page-fade">
+
+  <!-- ── Navigation ── -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="shop.html"  class="nav-link">Shop</a></li>
+        <li><a href="collections.html" class="nav-link active">Collections</a></li>
+        <li><a href="experience.html" class="nav-link">Experience</a></li>
+      </ul>
+      <a href="index.html" class="nav-logo">Maison</a>
+      <div class="nav-actions">
+        <a href="shop.html" class="nav-link">About</a>
+        <button class="nav-cart" data-open-cart aria-label="Open cart">
+          Bag&nbsp;<span class="cart-count">0</span>
+        </button>
+        <button class="nav-burger" id="nav-burger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true">
+    <button class="mobile-close" id="mobile-close" aria-label="Close menu">✕</button>
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="shop.html"  class="nav-link">Shop</a>
+    <a href="collections.html" class="nav-link">Collections</a>
+    <a href="experience.html" class="nav-link">Experience</a>
+    <a href="shop.html"  class="nav-link">About</a>
+    <button class="nav-link" data-open-cart>Bag (<span class="cart-count">0</span>)</button>
+  </div>
+
+  <!-- ============================================================
+       HERO — Kampagnenbild / -video + Editorial-Titel
+       ============================================================ -->
+  <section class="coll-hero">
+    <div class="coll-hero-media" id="coll-hero-media"></div>
+    <div class="coll-hero-content">
+      <div class="coll-hero-label">Maison Collections</div>
+      <h1 class="coll-hero-title" id="coll-hero-title">MAISON</h1>
+      <div class="coll-hero-season" id="coll-hero-season"></div>
+      <p class="coll-hero-tagline" id="coll-hero-tagline"></p>
+    </div>
+    <div class="coll-hero-scroll">Scroll</div>
+  </section>
+
+  <!-- ============================================================
+       COLLECTION NAVIGATION
+       ============================================================ -->
+  <nav class="coll-nav" aria-label="Collections">
+    <div class="coll-nav-inner" id="coll-nav-inner"></div>
+  </nav>
+
+  <!-- ============================================================
+       EDITORIAL INTRO
+       ============================================================ -->
+  <section class="coll-intro" id="coll-intro-section">
+    <div class="coll-intro-inner reveal">
+      <div class="coll-intro-label" id="coll-intro-label"></div>
+      <p class="coll-intro-text" id="coll-intro-text"></p>
+      <p class="coll-intro-desc" id="coll-intro-desc"></p>
+      <div class="coll-intro-colors" id="coll-intro-colors"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3D COLLECTION SCROLL EXPERIENCE
+       ============================================================ -->
+  <section class="coll-3d-track" id="coll-3d-track">
+    <div class="coll-3d-stage">
+      <div class="coll-3d-heading">
+        <div class="label">The Collection</div>
+        <h3>A Walk Through the Space</h3>
+      </div>
+      <div class="coll-3d-plane-wrap" id="coll-3d-plane-wrap"></div>
+      <div class="coll-3d-progress" id="coll-3d-progress"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PATTERN TUNNEL — "THE ARCHITECTURE"
+       ============================================================ -->
+  <section class="coll-tunnel-track" id="coll-tunnel-track">
+    <div class="coll-tunnel-stage">
+      <div class="coll-tunnel-heading">
+        <div class="label">Signature Pattern</div>
+        <h3 id="coll-tunnel-title">The Architecture</h3>
+      </div>
+      <div class="coll-tunnel-planes" id="coll-tunnel-planes"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       THE LOOKS — Depth-Sequence
+       ============================================================ -->
+  <section class="coll-looks-track" id="coll-looks-track">
+    <div class="coll-looks-stage">
+      <div class="coll-looks-heading">
+        <div class="label">Selected Looks</div>
+        <h3>The Looks</h3>
+      </div>
+      <div class="coll-3d-plane-wrap" id="coll-looks-stage-inner" style="transform-style:preserve-3d"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PARALLAX
+       ============================================================ -->
+  <section class="coll-parallax" id="coll-parallax">
+    <div class="coll-parallax-layer coll-parallax-bg"  id="coll-parallax-bg"></div>
+    <div class="coll-parallax-layer coll-parallax-mid" id="coll-parallax-mid"></div>
+    <div class="coll-parallax-layer coll-parallax-fg"  id="coll-parallax-fg"></div>
+    <div class="coll-parallax-caption">
+      <div class="label">Form &amp; Structure</div>
+      <p>“Where architecture ends and the body begins — MAISON lives in that space.”</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SHOP THE COLLECTION — CTA
+       ============================================================ -->
+  <section class="coll-cta">
+    <div class="container">
+      <div class="coll-cta-label reveal">Ready to Wear</div>
+      <h2 class="coll-cta-title reveal">Shop The Collection</h2>
+      <a href="shop.html" id="coll-shop-cta" class="btn btn-dark reveal">Shop The Collection</a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h2>Maison</h2>
+          <p>The pursuit of perfection, distilled into every stitch, seam, and silhouette.</p>
+          <a href="shop.html" class="btn btn-light" style="font-size:9px">Shop Now</a>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="collections.html">Collections</a></li>
+            <li><a href="shop.html">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="shop.html?category=bags">Bags</a></li>
+            <li><a href="shop.html?category=jackets">Jackets</a></li>
+            <li><a href="shop.html?category=shoes">Shoes</a></li>
+            <li><a href="shop.html?category=accessories">Accessories</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Client Services</h4>
+          <ul>
+            <li><a href="#">Shipping &amp; Returns</a></li>
+            <li><a href="#">Size Guide</a></li>
+            <li><a href="#">Care Instructions</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 MAISON. All rights reserved.</p>
+        <p>Privacy Policy &nbsp;·&nbsp; Terms of Service</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Sidebar -->
+  <div class="cart-backdrop" id="cart-backdrop"></div>
+  <aside class="cart-sidebar" id="cart-sidebar" role="dialog" aria-label="Shopping cart">
+    <div class="cart-header">
+      <h3>Your Bag</h3>
+      <button class="cart-close" id="cart-close" aria-label="Close cart">✕</button>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-footer" id="cart-footer" style="display:none">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <span id="cart-subtotal">€0</span>
+      </div>
+      <button class="btn-addcart" style="margin-bottom:12px"><span>Proceed to Checkout</span></button>
+      <button class="btn btn-ghost" style="width:100%" onclick="closeCart()">Continue Shopping</button>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="products.js"></script>
+  <script src="script.js"></script>
+  <script src="collections.js"></script>
+</body>
+</html>
